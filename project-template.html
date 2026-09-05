@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Project Title — Chooladeva Piyasir</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasir</span>
+  <ul class="topnav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- PART 1 — Header & metadata -->
+    <header class="cs-header">
+      <a class="breadcrumb" href="portfolio.html">← All projects</a>
+      <h1>Revenue &amp; Margin Leakage Analysis</h1>
+      <p style="max-width:70ch">One-sentence framing of the business problem this project investigates.</p>
+      <div class="meta-row">
+        <span class="tag">SQL</span>
+        <span class="tag">PostgreSQL</span>
+        <span class="tag">Retail</span>
+      </div>
+      <div class="link-row">
+        <a class="btn btn-outline" href="https://github.com/yourusername/project-repo" target="_blank">GitHub repo</a>
+        <a class="btn btn-outline" href="#" target="_blank">Live dashboard</a>
+        <a class="btn btn-outline" href="#" target="_blank">Raw dataset</a>
+      </div>
+    </header>
+
+    <!-- PART 2 — Executive summary -->
+    <div class="summary-box">
+      <div class="grid">
+        <div>
+          <h3>Primary challenge</h3>
+          <p>One or two sentences on the core business problem investigated.</p>
+        </div>
+        <div>
+          <h3>Key discovery</h3>
+          <p>The main non-obvious finding uncovered during the analysis.</p>
+        </div>
+        <div>
+          <h3>Measured outcome</h3>
+          <p>Quantified business value — a dollar figure, a percentage, a rate change.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- PART 3 — Business context -->
+    <section class="cs-section">
+      <span class="part-label">01 — Business context</span>
+      <h2>Problem framing</h2>
+      <p>Describe the operational setting: what kind of business, what market conditions, what was already known before this analysis started.</p>
+      <p><strong>Questions this analysis answers:</strong></p>
+      <ul>
+        <li>Question one, phrased as a business question, not a technical one.</li>
+        <li>Question two.</li>
+        <li>Question three.</li>
+      </ul>
+      <p><strong>Who this was for:</strong> name the stakeholder or decision-maker this analysis would go to.</p>
+    </section>
+
+    <!-- PART 4 — Data pipeline -->
+    <section class="cs-section">
+      <span class="part-label">02 — Data pipeline &amp; cleaning</span>
+      <h2>Getting the data ready</h2>
+      <p>Describe the data source: where it came from, how many rows/tables, what the relational structure looked like.</p>
+      <p>Then document what was wrong with it and how you fixed it — missing values, duplicate records, inconsistent types, outliers — and why you handled each the way you did.</p>
+    </section>
+
+    <!-- PART 5 — Analytical execution -->
+    <section class="cs-section">
+      <span class="part-label">03 — Analytical execution</span>
+      <h2>Method &amp; code</h2>
+      <p>Explain the approach before the code — why this query structure, why this test, why this model.</p>
+<pre><code>-- Example: monthly margin by region using a window function
+SELECT
+  region,
+  date_trunc('month', order_date) AS month,
+  SUM(margin) AS total_margin,
+  SUM(margin) - LAG(SUM(margin)) OVER (
+    PARTITION BY region ORDER BY date_trunc('month', order_date)
+  ) AS margin_change
+FROM orders
+GROUP BY region, month
+ORDER BY region, month;</code></pre>
+      <p>Follow with 2–3 sentences on what this specific query revealed.</p>
+    </section>
+
+    <!-- PART 6 — Visual storytelling -->
+    <section class="cs-section">
+      <span class="part-label">04 — Visual storytelling</span>
+      <h2>What the data shows</h2>
+      <figure>
+        <img src="https://via.placeholder.com/900x460/242424/9B9B9B?text=Dashboard+or+chart+screenshot" alt="Dashboard screenshot">
+        <figcaption>Fig. 1 — replace with an annotated screenshot of your dashboard or chart.</figcaption>
+      </figure>
+      <div class="callout">
+        <strong>Callout:</strong> point to a specific inflection point, spike, or trend shift in the chart above and explain what caused it.
+      </div>
+    </section>
+
+    <!-- PART 7 — Recommendations -->
+    <section class="cs-section" style="border-bottom:none">
+      <span class="part-label">05 — Recommendations</span>
+      <h2>What should happen next</h2>
+      <ol class="rec-list">
+        <li><span class="n">1</span><div>First concrete, data-backed recommendation.</div></li>
+        <li><span class="n">2</span><div>Second recommendation.</div></li>
+        <li><span class="n">3</span><div>Third recommendation.</div></li>
+      </ol>
+      <p style="margin-top:24px"><strong>Limitations:</strong> note dataset constraints, time window, or confounding variables that limit how far these conclusions generalize.</p>
+    </section>
+
+  </div>
+</div>
+
+</body>
+</html>
