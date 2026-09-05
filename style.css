@@ -138,15 +138,14 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 .hero-photo{
   position: relative;
   width: 100%;
-  border-radius: 10px;
   overflow: hidden;
-  margin: 20px 0 10px;
+  margin: 0;
 }
 .hero-photo img{
   width: 100%;
-  height: 62vh;
-  min-height: 380px;
-  max-height: 580px;
+  height: 46vh;
+  min-height: 300px;
+  max-height: 460px;
   object-fit: cover;
   display: block;
   filter: brightness(0.5);
@@ -163,14 +162,14 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 }
 .hero-photo-text h1{
   color: #FFFFFF;
-  font-size: clamp(2.6rem, 6vw, 4.4rem);
-  margin-bottom: 16px;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  margin-bottom: 10px;
 }
 .hero-photo-text .tagline{
   color: #FFFFFF;
   font-weight: 700;
   font-family: var(--font-mono);
-  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  font-size: clamp(.85rem, 1.6vw, 1.05rem);
   max-width: 46ch;
 }
 
