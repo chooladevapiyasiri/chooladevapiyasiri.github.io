@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Articles — Chooladeva Piyasir</title>
+<title>Articles — Chooladeva Piyasiri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="articles">
 
 <nav class="topnav">
-  <span class="brand">Chooladeva Piyasir</span>
+  <span class="brand">Chooladeva Piyasiri</span>
   <ul class="topnav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
@@ -25,35 +25,88 @@
 <div class="content">
   <div class="wrap">
 
-    <header class="hero">
+    <header class="hero articles-hero">
       <h1>Articles</h1>
-      <p class="lede">Short write-ups on techniques, tools, and things I've learned along the way.</p>
+      <p class="lede">I write about data analytics, machine learning, and visual storytelling on <a href="https://medium.com/@chooladevapiyasiri" target="_blank" rel="noopener noreferrer" class="medium-link">Medium</a>, exploring practical insights, workflow breakdowns, and project case studies.</p>
     </header>
 
-    <section style="border-bottom:none">
-      <a href="#">
-        <div class="article-row">
-          <div>
-            <h3>Title of your first article</h3>
-            <p class="muted" style="margin:0; font-size:.92rem;">One-line summary of what this article covers.</p>
-          </div>
-          <span class="date">Jan 2026</span>
-        </div>
-      </a>
-      <a href="#">
-        <div class="article-row">
-          <div>
-            <h3>Title of your second article</h3>
-            <p class="muted" style="margin:0; font-size:.92rem;">One-line summary of what this article covers.</p>
-          </div>
-          <span class="date">Dec 2025</span>
-        </div>
-      </a>
-      <p class="muted" style="margin-top:20px; font-size:.88rem;">Replace these with real posts — link out to Medium/Substack, or write full pages here later.</p>
-    </section>
+<section style="border-bottom:none">
+  <!-- Article 1 -->
+  <a href="https://medium.com/@chooladevapiyasiri/unlocking-hotel-insights-what-5-000-tripadvisor-reviews-reveal-about-sri-lankan-hospitality-2b6fed643da0?sharedUserId=chooladevapiyasiri" target="_blank" rel="noopener noreferrer" class="article-card-link">
+    <div class="article-card">
+      <div class="article-info">
+        <h3>Unlocking Hotel Insights: What 5,000 TripAdvisor Reviews Reveal About Sri Lankan Hospitality</h3>
+        <p class="muted">An NLP case study mining 5,000+ TripAdvisor reviews across 100+ Sri Lankan hotels using ensemble sentiment models (VADER, SentiWordNet, DistilBERT) and fine-tuned BERT classifiers to turn guest feedback into actionable operational improvements.</p>
+        <span class="read-link">Read on Medium &rarr;</span>
+      </div>
+      <div class="article-image">
+        <img src="article1.png" alt="Hotel Insights Article Cover">
+      </div>
+    </div>
+  </a>
 
+  <!-- Article 2 -->
+  <a href="https://medium.com/@chooladevapiyasiri/harnessing-big-data-for-climate-insights-decoding-a-decade-of-weather-trends-across-sri-lanka-5d74f8ca4fb2?sharedUserId=chooladevapiyasiri" target="_blank" rel="noopener noreferrer" class="article-card-link">
+    <div class="article-card">
+      <div class="article-info">
+        <h3>Harnessing Big Data for Climate Insights: Decoding a Decade of Weather Trends Across Sri Lanka</h3>
+        <p class="muted">An end-to-end big data pipeline leveraging Hadoop MapReduce, Apache Hive, Apache Spark, and Tableau to process 14+ years of daily climate metrics across Sri Lanka, highlighting tool-chain synergies across batch, SQL, and in-memory analytics.</p>
+        <span class="read-link">Read on Medium &rarr;</span>
+      </div>
+      <div class="article-image">
+        <img src="article2.png" alt="Climate Insights Article Cover">
+      </div>
+    </div>
+  </a>
+
+<!-- Article 3 -->
+  <a href="https://medium.com/@chooladevapiyasiri/predicting-low-evapotranspiration-events-in-sri-lanka-using-apache-spark-mllib-9b4c18400cb0?sharedUserId=chooladevapiyasiri" target="_blank" rel="noopener noreferrer" class="article-card-link">
+    <div class="article-card">
+      <div class="article-info">
+        <h3>Predicting Low Evapotranspiration Events in Sri Lanka Using Apache Spark MLlib</h3>
+        <p class="muted">A predictive machine learning study using Apache Spark MLlib regression models to forecast low evapotranspiration events during critical agricultural transitions, achieving an 0.84 R² and 93% recall with Random Forest.</p>
+        <span class="read-link">Read on Medium &rarr;</span>
+      </div>
+      <div class="article-image">
+        <img src="article3.png" alt="Predicting Low Evapotranspiration Cover">
+      </div>
+    </div>
+  </a>
+
+  <!-- Article 4 -->
+  <a href="https://medium.com/@chooladevapiyasiri/automated-diabetic-retinopathy-grading-with-deep-learning-a-complete-pipeline-4768b998a650?sharedUserId=chooladevapiyasiri" target="_blank" rel="noopener noreferrer" class="article-card-link">
+    <div class="article-card">
+      <div class="article-info">
+        <h3>Automated Diabetic Retinopathy Grading with Deep Learning: A Complete Pipeline</h3>
+        <p class="muted">A end-to-end deep learning pipeline tackling a 36:1 class imbalance across 35,000+ retinal images, evaluating EfficientNet-B4 against a custom RetinalNet via focal loss, mixup, and Grad-CAM visual explainability.</p>
+        <span class="read-link">Read on Medium &rarr;</span>
+      </div>
+      <div class="article-image">
+        <img src="article4.png" alt="Diabetic Retinopathy Pipeline Cover">
+      </div>
+    </div>
+  </a>
+</section>
+
+<div class="btn-divider articles-divider"></div>
+      <!-- Social icons — bottom center -->
+      <div class="social-row articles-social">
+        <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+  <!-- Copyright notice as inline hero text -->
+  <p class="copyright-text">
+    &copy; Chooladeva Piyasiri. All rights reserved.</p>
+  </header>
   </div>
 </div>
-
 </body>
 </html>
