@@ -3,15 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — Chooladeva Piyasir</title>
+<title>About — Chooladeva Piyasiri</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="about">
 
 <nav class="topnav">
-  <span class="brand">Chooladeva Piyasir</span>
+  <span class="brand">Chooladeva Piyasiri</span>
   <ul class="topnav-links">
     <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
@@ -27,44 +27,83 @@
 
     <header class="hero">
       <h1>About</h1>
-      <p class="lede">The short version: I like finding the number that changes a decision.</p>
+      <p class="lede">I like asking why, then letting the data answer.</p>
     </header>
 
+    <!-- Bio Section -->
+    <section class="about-bio-section">
+      <div class="section-head">
+        <h2>A Brief Overview about Myself</h2>
+      </div>
+
+      <img src="Linkedin Profile Picture1.jpg" alt="Chooladeva Piyasiri" class="bio-photo-float">
+
+      <p>I’m Chooladeva, a Data Analyst passionate about turning data into meaningful stories, intuitive visualizations, and practical solutions.</p>
+      <p>I’ve always been curious about the world around me. I like to observe things, question why they happen, and look for the reasons behind them. Over time, that curiosity naturally led me to data. Today, I channel that curiosity into digging into raw data, uncovering relationships and patterns, and turning complex information into stories that people can understand.</p>
+      <p>To me, good analytics is more than producing numbers or building a dashboard. It is about understanding the entire journey of the data: cleaning and exploring raw data, exploring it with statistical analysis and machine learning, and then shaping what I find into something clear enough that it actually changes a decision.</p>
+      <p>I hold a BSc (Hons) in Data Science from Coventry University, and I’m currently pursuing an MSc in Big Data Analytics at Robert Gordon University. Over the past few years, I've had the opportunity to work across the whole analytics pipeline, from data preparation and exploratory analysis to predictive modelling, visualization, and deployment. I also have a strong interest in machine learning, especially because I like applying it to problems that actually matter.</p>
+      <p>Currently, I’m focused on continuously sharpening my analytical and technical skills, exploring new domains, and building analytical products that combine insight, functionality, and thoughtful design.</p>
+    </section>
+
+    <!-- Skills Section -->
     <section>
       <div class="section-head">
-        <span class="kicker">Background</span>
-        <h2>From computer science to data analytics</h2>
+        <h2>Technical &amp; Professional Skills</h2>
       </div>
-      <p>Write 2–3 short paragraphs here. Cover: what you're studying and where, how you got interested in data analytics specifically, and one concrete moment that shows your problem-solving style — a project, a course, a dataset that surprised you.</p>
-      <p>Mention the bridge between your CS/AI coursework and analytics — e.g. how programming skills let you build your own data pipelines instead of relying on pre-cleaned CSVs.</p>
+
+      <div class="skills-grid">
+        <div class="skill-card"><img src="sql.png" alt="SQL"></div>
+        <div class="skill-card"><img src="python.png" alt="Python"></div>
+        <div class="skill-card"><img src="excel.png" alt="Excel"></div>
+        <div class="skill-card"><img src="powerbi.png" alt="Power BI"></div>
+        <div class="skill-card"><img src="tableau.png" alt="Tableau"></div>
+        <div class="skill-card"><img src="hadoop.jpg" alt="Hadoop"></div>
+        <div class="skill-card"><img src="spark.jpg" alt="Spark"></div>
+        <div class="skill-card"><img src="github.jpg" alt="Github"></div>
+        <div class="skill-card"><img src="googlesheets.jpg" alt="Google Sheets"></div>
+        <div class="skill-card"><img src="visiual studio.jpg" alt="Visiual Studio"></div>
+      </div>
     </section>
 
-    <section>
+    <!-- Academic Foundation Section -->
+    <section class="academic-section" style="border-bottom:none">
       <div class="section-head">
-        <span class="kicker">How I work</span>
-        <h2>Core approach</h2>
+        <h2>Academic Foundation</h2>
       </div>
-      <ol class="rec-list">
-        <li><span class="n">1</span><div><strong>Define the business objective first.</strong> What decision does this analysis need to support?</div></li>
-        <li><span class="n">2</span><div><strong>Validate the data before trusting it.</strong> Check for missing values, duplicates, and schema issues.</div></li>
-        <li><span class="n">3</span><div><strong>Analyze rigorously.</strong> Choose the right statistical test or model — don't default to the familiar one.</div></li>
-        <li><span class="n">4</span><div><strong>Deliver a clear recommendation.</strong> Every chart should answer "so what should we do."</div></li>
-      </ol>
-    </section>
 
-    <section style="border-bottom:none">
-      <div class="section-head">
-        <span class="kicker">Continuous learning</span>
-        <h2>Coursework &amp; certifications</h2>
+      <div class="academic-grid">
+        <div class="academic-card">
+          <span class="academic-year">May 2025 - Present</span>
+          <h3>MSc in Big Data Analytics</h3>
+          <p class="academic-institution">Robert Gordon University, United Kingdom</p>
+        </div>
+
+        <div class="academic-card">
+          <span class="academic-year">Graduated August 2024</span>
+          <h3>BSc (Hons) in Data Science</h3>
+          <p class="academic-institution">Coventry University, United Kingdom</p>
+        </div>
       </div>
-      <ul class="stack-group" style="list-style:none; padding:0;">
-        <li style="font-family:var(--font-mono); font-size:.9rem; padding:10px 0; border-top:1px solid var(--line); color:var(--text-muted);">CMM708 — Research Methods, IIT Sri Lanka</li>
-        <li style="font-family:var(--font-mono); font-size:.9rem; padding:10px 0; border-top:1px solid var(--line); color:var(--text-muted);">Add certifications here — e.g. Google Data Analytics, AWS Cloud Practitioner</li>
-      </ul>
-    </section>
+    
+   </section>
 
-  </div>
-</div>
+      <!-- Social icons — bottom center -->
+      <div class="social-row">
+        <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
 
+    <!-- Copyright notice as inline hero text -->
+    <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div> 
+</div> 
 </body>
 </html>
