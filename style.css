@@ -853,3 +853,51 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
 }
+
+/* =========================================================
+   Mobile Fixes for Navigation, Home Hero & PDF Preview
+   ========================================================= */
+@media (max-width: 720px) {
+
+  /* 1. Keep Navigation Links in One Horizontal Row */
+  .topnav {
+    height: auto !important;
+    padding: 12px 10px !important;
+  }
+
+  .topnav .brand {
+    display: none; /* Hides brand name on small screens to fit links */
+  }
+
+  .topnav-links {
+    width: 100%;
+    justify-content: space-between;
+    gap: 0 !important;
+  }
+
+  .topnav-links a {
+    font-size: 0.85rem !important;
+    padding-bottom: 2px;
+  }
+
+  /* 2. Fix Home Page Text Cutoff */
+  .home .hero h1 {
+    white-space: normal !important;
+    font-size: 1.8rem !important;
+    letter-spacing: 1.5px !important;
+    word-break: break-word;
+    padding: 0 10px;
+  }
+
+  /* 3. Fix PDF Mobile Frame Sizing */
+  .resume embed,
+  .resume iframe {
+    height: 480px !important;
+    max-width: 100% !important;
+  }
+  
+  .resume p.muted {
+    white-space: normal !important;
+  }
+}
+
