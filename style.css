@@ -119,29 +119,6 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 /* =========================================================
    Hero (home page)
    ========================================================= */
-.home .wrap {
-  max-width: 100%;
-  padding-top: 0;
-  padding-bottom: 0px;
-}
-
-.home .content {
-  width: 100%;
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-  box-sizing: border-box;
-}
-
-.home .hero {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin-top: 200;
-  align-items: center;
-  text-align: center;
-}
-
 .hero h1 {
   color: #F8FAFC; 
   font-family: var(--font-body);
@@ -178,6 +155,70 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 .kpi .num{ font-family: var(--font-mono); font-size: 1.4rem; color: var(--accent-2); display: block; }
 .kpi .label{ font-size: .82rem; color: var(--text-muted); }
 
+.home .wrap {
+  max-width: 100%;
+  padding-top: 0;
+  padding-bottom: 0px;
+}
+
+.home .content {
+  width: 100%;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  box-sizing: border-box;
+}
+
+.home .hero {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 120;
+  align-items: center;
+  text-align: center;
+}
+
+
+body.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body.home .wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+body.home .hero {
+  margin-top: 20 !important;
+  margin-bottom: 24px !important;
+  text-align: center;
+}
+
+body.home .social-row {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+.home .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 400px !important; /* Reduced from auto / default margin */
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
 /* =========================================================
    Social icon row (home page, bottom center)
    ========================================================= */
@@ -187,7 +228,7 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
   align-items: center;
   gap: 30px;
   margin-top: 5px;
-  margin-bottom: 400px;
+  margin-bottom: 40px;
   padding-top: 20px;
   border-top: none;
 }
@@ -381,7 +422,7 @@ section:last-of-type{ border-bottom: none; }
 /* Reduce social icons gap specifically on the articles page */
 .articles-hero ~ .social-row,
 .wrap:has(.articles-hero) .social-row {
-  margin-bottom: 320px !important;
+  margin-bottom: 330px !important;
 }
 
 .articles .copyright-text {
@@ -803,7 +844,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   margin-right: auto !important;
   display: block !important;
   width: 100% !important;
-  margin-top: -70px !important; /* Reduced from auto / default margin */
+  margin-top: 280px !important; /* Reduced from auto / default margin */
   padding-top: 0 !important;
   padding-bottom: 20px !important;
   margin-bottom: 0 !important;
@@ -848,7 +889,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   margin-right: auto !important;
   display: block !important;
   width: 100% !important;
-  margin-top: -70px !important; /* Reduced from auto / default margin */
+  margin-top: 280px !important; /* Reduced from auto / default margin */
   padding-top: 0 !important;
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
@@ -901,3 +942,16 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
+/* Increase space above the title on the home page only */
+body.home .hero {
+  padding-top: 220px !important; /* Increase or decrease this px value to adjust space */
+}
+
+/* Horizontal divider line above social icons strictly on the Home page */
+body.home .social-row {
+  border-top: 1px solid var(--line) !important;
+  width: 100% !important;
+  max-width: 600px !important; /* Adjust line width as desired */
+  padding-top: 24px !important;
+  margin-top: 50px !important;
+}
