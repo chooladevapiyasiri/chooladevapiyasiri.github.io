@@ -944,7 +944,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 
 /* Increase space above the title on the home page only */
 body.home .hero {
-  padding-top: 220px !important; /* Increase or decrease this px value to adjust space */
+  padding-top: 180px !important; /* Increase or decrease this px value to adjust space */
 }
 
 /* Horizontal divider line above social icons strictly on the Home page */
