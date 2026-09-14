@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Chooladeva Piyasiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="portfolio">
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasiri</span>
+  <ul class="topnav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="articles.html">Articles</a></li>
+    <li><a href="contact.html">Contact</a></li>
+    <li><a href="resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <header class="hero">
+      <h1>Portfolio</h1>
+      <p class="lede">A curated showcase of analytical projects and data stories.</p>
+    </header>
+
+    <section style="border-bottom:none">
+      
+      <!-- Sub-page Navigation Buttons (Moved below border line and centered) -->
+      <div class="portfolio-tabs" style="display: flex; justify-content: center; margin: 2rem 0;">
+        <button class="tab-btn active" data-tab="featured-work" onclick="switchTab('featured-work')">Featured Work</button>
+        <button class="tab-btn" data-tab="project-archive" onclick="switchTab('project-archive')">Project Archive</button>
+      </div>
+      
+      <!-- SUB-PAGE 1: Featured Work (Default Active) -->
+      <div id="featured-work" class="tab-content active">
+        <div class="portfolio-grid">
+          
+          <!-- Card 1 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/tripadvisor.png" alt="Project 1 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">NLP</span><span class="tag">XGBoost</span><span class="tag">BERT</span><span class="tag">BERTopic</span></div>
+              <h3>Hotel Customer Feedback & Sentiment Intelligence</h3>
+              <p>Scraped and analyzed 5,960 TripAdvisor reviews across 116 Sri Lankan hotels, fine-tuning BERT to detect dissatisfaction hidden in a 97%-positive dataset and uncovering aspect-level service insights that could help hotels improve the guest experience.</p>
+              <a class="view" href="projects/hotel-sentiment.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/pizza sales.png" alt="Project 2 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags"><span class="tag">SQL Server</span><span class="tag">Microsoft SSIS (ETL)</span><span class="tag">Power BI</span><span class="tag">DAX</span><span class="tag">Figma</span></div>
+              <h3>Pizza Sales & Revenue Intelligence</h3>
+              <p>Built a SQL Server data warehouse for a pizza business, bringing together pizza sales, inventory, recipe, and staff data, with SQL analysis feeding Power BI dashboards for business reporting.</p>
+              <a class="view" href="projects/pizza-sales.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/healthcare.png" alt="Project 3 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">DAX</span>
+                <span class="tag">Power Query</span>
+              </div>
+              <h3>Healthcare Performance & Operations Analysis</h3>
+              <p>Built a multi-page Power BI dashboard analyzing 55,500 patient records across 10 U.S. hospitals, covering demographics, medical conditions, length of stay, treatment costs, and hospital performance.</p>
+              <a class="view" href="projects/healthcare-analytics.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/merchandise.png" alt="Project 4 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">DAX</span>
+                <span class="tag">Power Query</span>
+              </div>
+              <h3>Merchandise Sales & Customer Analysis</h3>
+              <p>Built a multi-page Power BI dashboard analyzing merchandise sales performance for a product line covering sales trends, product performance, geographic reach, buyer demographics, and review/rating impact.</p>
+              <a class="view" href="projects/merchandise-sales.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/bdp weather.png" alt="Project 5 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags"><span class="tag">Apache Hadoop (MapReduce)</span><span class="tag">Apache Hive</span><span class="tag">Apache Spark</span><span class="tag">PySpark</span><span class="tag">Spark MLlib</span><span class="tag">Apache Zeppelin</span><span class="tag">Tableau</span></div>
+              <h3>Sri Lanka Climate Analytics & Agricultural Risk Insights (2010–2024)</h3>
+              <p>Analyzed 14+ years of district-level weather data across Sri Lanka using Hadoop, Hive, and Spark, combining climate trends with evapotranspiration prediction and Tableau visualizations to support agricultural and water-resource planning.</p>
+              <a class="view" href="projects/climate-analytics.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="proj-card">
+            <div class="proj-card-img">
+              <img src="projects/supermarket_analysis.jpg" alt="Project 6 screenshot">
+            </div>
+            <div class="proj-card-content">
+              <div class="proj-tags"><span class="tag">Python</span><span class="tag">Scikit-learn</span><span class="tag">pandas</span><span class="tag">NumPy</span><span class="tag">Matplotlib</span><span class="tag">Seaborn</span></div>
+              <h3>Supermarket Demand Forecasting & Inventory Planning</h3>
+              <p>Built a modular machine learning pipeline to forecast next-week sales for top fast-moving product categories (Grocery, Beverages, Chilled) across five supermarket outlets, using historical transactional data.</p>
+              <a class="view" href="projects/demand-forecasting.html">View case study &rarr;</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SUB-PAGE 2: Project Archive -->
+
+<!-- SUB-PAGE 2: Project Archive -->
+<div id="project-archive" class="tab-content">
+  <div class="portfolio-grid">
+    
+    <!-- Archive Card 1 -->
+    <div class="proj-card">
+      <div class="proj-card-img">
+        <img src="projects/SQL.jpg" alt="SQL Project Portfolio Screenshot">
+      </div>
+      <div class="proj-card-content">
+        <div class="proj-tags">
+          <span class="tag">SQL Server</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">MySQL</span>
+          <span class="tag">SSMS</span>
+        </div>
+        <h3>SQL Project Portfolio</h3>
+        <p>A collection of standalone SQL projects covering data cleaning, exploratory analysis, and query-driven reporting across real-world datasets. Each project includes structured SQL scripts and documentation, demonstrating query writing, data cleaning techniques, relational schema design, and analytical querying across varied business domains.</p>
+        <a class="view" href="https://github.com/chooladevapiyasiri/SQL_Project_Portfolio/tree/main">View project portfolio &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Archive Card 2 -->
+    <div class="proj-card">
+      <div class="proj-card-img">
+        <img src="projects/dr classification.png" alt="DR classification Screenshot">
+      </div>
+      <div class="proj-card-content">
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">PyTorch</span>
+          <span class="tag">EfficientNet-B4</span>
+          <span class="tag">ResNet CNN</span>
+          <span class="tag">Grad-CAM</span>
+        </div>
+        <h3>Diabetic Retinopathy Severity Grading: Custom CNN vs. Transfer Learning</h3>
+        <p>Built and compared two deep learning models to classify diabetic retinopathy severity across five grades using around 35,000 retinal images. Tested EfficientNet-B4 and a custom CNN with SE-attention, then used Grad-CAM, probability calibration, and bias testing to assess how reliable the models were beyond basic accuracy.</p>
+        <a class="view" href="projects/diabetic-retinopathy.html">View case study &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Archive Card 3-->
+    <div class="proj-card">
+      <div class="proj-card-img">
+        <img src="projects/air_quality_PCA.png" alt="Air Quality PCA Screenshot">
+      </div>
+      <div class="proj-card-content">
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Scikit-learn</span>
+          <span class="tag">pandas</span>
+          <span class="tag">NumPy</span>
+          <span class="tag">SciPy</span>
+          <span class="tag">K-Means</span>
+          <span class="tag">PCA</span>
+        </div>
+        <h3>Urban Air Quality Pattern & Drift Analysis</h3>
+        <p>Analyzed hourly air quality data using K-Means clustering to identify three pollution states and measure how these clusters changed over time using centroid shifts, membership changes, and KL divergence between warm and cold seasons.</p>
+        <a class="view" href="projects/air-quality.html">View case study &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Archive Card 4-->
+    <div class="proj-card">
+      <div class="proj-card-img">
+        <img src="projects/energy_consumption.jpg" alt="Regional Energy Demand Forecasting & Planning Screenshot">
+      </div>
+      <div class="proj-card-content">
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+	  <span class="tag">Scikit-learn</span>
+          <span class="tag">pandas</span>
+          <span class="tag">NumPy</span>
+	  <span class="tag">SciPy</span>
+	  <span class="tag">XGBoost</span>
+	  <span class="tag">LightGBM</span>
+	  <span class="tag">AWS SageMaker</span>
+        </div>
+        <h3>Regional Energy Demand Forecasting & Planning</h3>
+        <p>Built a cloud-based ML forecasting system predicting half-hourly electricity demand across five Australian states, combining two decades of weather and energy data. Trained and compared six ensemble algorithms per region, built a stacked meta-mode, and applied systematic hyperparameter tuning on AWS SageMaker.</p>
+        <a class="view" href="projects/energy-forecasting.html">View case study &rarr;</a>
+      </div>
+    </div>
+
+    <!-- Archive Card 5-->
+    <div class="proj-card">
+      <div class="proj-card-img">
+        <img src="projects/lugx_cloud.png" alt="lugx_cloud Screenshot">
+      </div>
+      <div class="proj-card-content">
+        <div class="proj-tags">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">ClickHouse</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Google Kubernetes Engine</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Amazon S3</span>
+          <span class="tag">Google Cloud Operations Suite</span>
+          <span class="tag">Power BI</span>
+        </div>
+        <h3>Cloud-Based Business Operations & Analytics Platform</h3>
+        <p>Deployed a full microservices e-commerce platform on Google Kubernetes Engine with blue-green CI/CD pipeline via GitHub Actions. Built a real-time analytics pipeline with ClickHouse, exported to AWS S3, then connected the data to Power BI to create a live dashboard of user activity and business insights.</p>
+        <a class="view" href="projects/cloud-business-platform.html">View case study &rarr;</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    </section>
+
+<div class="btn-divider portfolio-divider"></div>
+      <!-- Social icons — bottom center -->
+      <div class="social-row portfolio-social">
+        <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+  <!-- Copyright notice as inline hero text -->
+  <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div>
+</div>
+
+<!-- Tab Switching Script with Persistence -->
+<script>
+  function switchTab(tabId) {
+    // Hide all tab content sections
+    const contents = document.querySelectorAll('.tab-content');
+    contents.forEach(content => content.classList.remove('active'));
+
+    // Remove active state from all buttons
+    const buttons = document.querySelectorAll('.tab-btn');
+    buttons.forEach(btn => btn.classList.remove('active'));
+
+    // Show selected tab content
+    const selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+      selectedTab.classList.add('active');
+    }
+
+    // Highlight matching button
+    const targetBtn = document.querySelector(`.tab-btn[data-tab="${tabId}"]`);
+    if (targetBtn) {
+      targetBtn.classList.add('active');
+    }
+
+    // Save state in URL Hash
+    history.replaceState(null, null, '#' + tabId);
+  }
+
+  // Restore active tab on page load/refresh
+  window.addEventListener('DOMContentLoaded', () => {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && document.getElementById(hash)) {
+      switchTab(hash);
+    } else {
+      switchTab('featured-work'); // Default fallback
+    }
+  });
+</script>
+
+</body>
+</html>
