@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud-Based Business Operations & Analytics Platform — Chooladeva Piyasiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="lugx_cloud_microservices">
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasiri</span>
+  <ul class="topnav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="../articles.html">Articles</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- Header Section -->
+    <header class="cs-header">
+      <h1>Cloud-Based Business Operations & Analytics Platform</h1>
+      <p class="lede">An end-to-end cloud-native microservices platform and analytics architecture featuring a production-ready video game e-commerce store (Lugx Gaming) with automated Blue-Green deployments and real-time telemetry pipelines.</p>
+      
+      <div class="meta-row">
+          <span class="tag">Python</span>
+          <span class="tag">FastAPI</span>
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">ClickHouse</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Google Kubernetes Engine</span>
+          <span class="tag">GitHub Actions</span>
+          <span class="tag">Amazon S3</span>
+          <span class="tag">Google Cloud Operations Suite</span>
+          <span class="tag">Power BI</span>
+      </div>
+
+      <div class="link-row">
+        <a href="https://github.com/chooladevapiyasiri/lugx-cloud-deployment" class="btn" target="_blank" rel="noopener">View GitHub Repository</a>
+      </div>
+    </header>
+
+    <!-- At-a-Glance Summary Box -->
+    <div class="summary-box">
+      <div class="grid">
+        <div>
+          <h3>DEPLOYMENT STRATEGY</h3>
+          <p>Zero-Downtime Blue-Green via GitHub Actions</p>
+        </div>
+        <div>
+          <h3>ORCHESTRATION & INGRESS</h3>
+          <p>Google Kubernetes Engine (GKE) & NGINX Ingress</p>
+        </div>
+        <div>
+          <h3>TELEMETRY & OLAP STACK</h3>
+          <p>ClickHouse Engine & Amazon S3 Data Lake</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <section class="cs-section">
+      <h2>Project Overview</h2>
+      <p>An end-to-end cloud-native microservices platform and analytics architecture featuring a production-ready video game e-commerce store (Lugx Gaming).</p>
+      <p>The project bridges DevOps/MLOps infrastructure with business intelligence—containerizing independent services, automating zero-downtime Blue-Green deployments on Google Kubernetes Engine (GKE) via GitHub Actions, and piping real-time user telemetry (clicks, scrolls, session duration) into ClickHouse, AWS S3, and Power BI for executive dashboarding.</p>
+      <div class="callout">
+        <strong>DevOps & MLOps Impact:</strong> Pairs zero-downtime continuous deployment pipelines with high-throughput OLAP analytics, allowing real-time user engagement tracking without impacting microservice response latencies.
+      </div>
+    </section>
+
+    <!-- Section 2: Technical Architecture -->
+    <section class="cs-section">
+      <h2>Technical Architecture & Cloud Workflow</h2>
+      
+      <div class="pipeline-wrapper">
+        <div class="pipeline-container">
+          <div class="pipeline-step">
+            <div class="step-badge">01</div>
+            <div class="step-card">
+              <div class="step-title">NGINX Ingress & Routing</div>
+              <p class="step-desc">Handles SSL termination, path-based routing, and automated load balancing across services</p>
+              <span class="step-tag">NGINX Ingress</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">02</div>
+            <div class="step-card">
+              <div class="step-title">Microservice Layer</div>
+              <p class="step-desc">Decoupled Catalog and Order domains powered by FastAPI and dedicated PostgreSQL databases</p>
+              <span class="step-tag">FastAPI + PostgreSQL</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">03</div>
+            <div class="step-card">
+              <div class="step-title">Real-Time Telemetry Engine</div>
+              <p class="step-desc">Streams user clicks, page views, and scroll depth directly into ClickHouse for OLAP processing</p>
+              <span class="step-tag">ClickHouse Analytics</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">04</div>
+            <div class="step-card">
+              <div class="step-title">Data Lake & BI Dashboards</div>
+              <p class="step-desc">Exports event logs to Amazon S3 for long-term storage and connects Power BI for visual reporting</p>
+              <span class="step-tag">AWS S3 + Power BI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="figcaption">Figure 1: Microservices layout, NGINX routing, real-time analytics streaming, and data lake ingestion architecture.</p>
+
+      <h3>1. Infrastructure & Continuous Delivery (CI/CD)</h3>
+      <p>A production-ready Kubernetes setup paired with an automated deployment pipeline to ensure continuous availability:</p>
+      <ul>
+        <li><strong>Kubernetes Orchestration & Service Mesh:</strong> Tested locally using Minikube before deploying to Google Kubernetes Engine (GKE). NGINX Ingress Controller manages path-based routing, SSL/TLS termination, and load balancing across decoupled Catalog (FastAPI + PostgreSQL), Checkout (FastAPI + PostgreSQL), and Telemetry services.</li>
+        <li><strong>Zero-Downtime Blue-Green Pipeline:</strong> GitHub Actions workflow automates GCP authentication, Docker container builds, and static security vulnerability scanning on push.</li>
+        <li><strong>Automated Cutover:</strong> Deploys new builds to an inactive staging color, runs automated health check integration tests against live endpoints, and updates NGINX routing rules for seamless traffic cutover with instant rollback capability.</li>
+      </ul>
+
+      <h3>2. Analytics Pipeline & Business Intelligence</h3>
+      <p>Captures dynamic user interactions across the storefront to enable real-time operational visibility:</p>
+      <ul>
+        <li><strong>Event Ingestion:</strong> Ingests frontend clickstream events, scroll depth, page views, and session durations directly into ClickHouse for high-throughput OLAP querying.</li>
+        <li><strong>Data Lake Export:</strong> Periodically stages telemetry logs to Amazon S3 using an automated AWS SDK integration for decoupled storage.</li>
+        <li><strong>Power BI Integration:</strong> Connects directly to the S3 data layer to report user conversion funnels, session length trends, and site engagement metrics.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Telemetry & Business Intelligence Breakdown -->
+    <section class="cs-section">
+      <h2>Real-Time Telemetry & BI Stack</h2>
+      <p>A functional breakdown of the analytical processing layers supporting operational and business visibility:</p>
+
+      <div class="summary-box" style="padding: 0; overflow: hidden; margin: 24px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.03);">
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Architecture Layer</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Core Technology</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Functional Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Real-Time Analytics Engine</td>
+              <td style="padding: 14px 18px;">ClickHouse Engine</td>
+              <td style="padding: 14px 18px;">Captures clickstream, scroll depth, and page views at sub-second latencies.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Data Lake Storage Layer</td>
+              <td style="padding: 14px 18px;">Amazon S3</td>
+              <td style="padding: 14px 18px;">Exports event logs to AWS S3 for long-term storage and decoupled analytical access.</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Executive BI Reporting</td>
+              <td style="padding: 14px 18px;">Microsoft Power BI</td>
+              <td style="padding: 14px 18px;">Visualizes average session durations, scroll depths, and page conversion rates.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Security, Governance & Observability -->
+    <section class="cs-section">
+      <h2>Security, Governance & Observability</h2>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>Secrets Management & RBAC:</strong>
+            Enforced least-privilege access across the cluster using Kubernetes ServiceAccounts and RBAC, paired with encrypted secret store configs in GitHub Actions and GCP Secret Manager.
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>Automated Container Guardrails:</strong>
+            Implemented static vulnerability scanning on Docker images within CI pipelines prior to registry pushes, enforced alongside protected main-branch deployment policies.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Centralized Cluster Observability:</strong>
+            Configured Google Cloud Operations Suite (Stackdriver) for centralized cluster logging, resource metric monitoring, and distributed tracing across all active microservices.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Tools & Technologies -->
+    <section class="cs-section">
+      <h2>Tools & Technologies</h2>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>Containerization & Orchestration:</strong> Kubernetes, Google Kubernetes Engine (GKE), Docker, Minikube, NGINX Ingress.
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>CI/CD & MLOps:</strong> GitHub Actions, Docker Hub, GCP IAM, Blue-Green Deployment Strategies.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Backend Services & Databases:</strong> Python, FastAPI, PostgreSQL, ClickHouse.
+          </div>
+        </li>
+        <li>
+          <span class="n">04</span>
+          <div>
+            <strong>Cloud & Business Intelligence:</strong> Amazon S3, Google Cloud Platform (GCP), Microsoft Power BI.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer Divider and Icons -->
+    <div class="btn-divider lugx_cloud_microservices-divider"></div>
+    <div class="social-row lugx_cloud_microservices-social">
+      <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+    <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div>
+</div>
+
+</body>
+</html>

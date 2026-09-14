@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sri Lanka Climate Analytics & Agricultural Risk Insights (2010–2024) — Chooladeva Piyasiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="srilanka_climate_analysis">
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasiri</span>
+  <ul class="topnav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="../articles.html">Articles</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- Header Section -->
+    <header class="cs-header">
+      <h1>Sri Lanka Climate Analytics & Agricultural Risk Insights (2010–2024)</h1>
+      <p class="lede">A large-scale climate analytics and predictive modeling framework processing 14+ years of daily weather observations across all administrative districts in Sri Lanka using a distributed Big Data pipeline.</p>
+      
+      <div class="meta-row">
+        <span class="tag">Apache Hadoop</span>
+        <span class="tag">Apache Hive</span>
+        <span class="tag">Apache Spark</span>
+        <span class="tag">PySpark</span>
+        <span class="tag">Spark MLlib</span>
+        <span class="tag">Apache Zeppelin</span>
+        <span class="tag">Tableau</span>
+      </div>
+
+      <div class="link-row">
+        <a href="https://github.com/chooladevapiyasiri/SL_weather_analysis_BDP" class="btn" target="_blank" rel="noopener">View GitHub Repository</a>
+        <a href="https://public.tableau.com/views/SriLankaAnalyticsDashboard_17677487310780/Overview?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" class="btn" target="_blank" rel="noopener">View Tableau Dashboard</a>
+      </div>
+    </header>
+
+    <!-- At-a-Glance Summary Box -->
+    <div class="summary-box">
+      <div class="grid">
+        <div>
+          <h3>DATASET SCOPE</h3>
+          <p>14+ Years (2010–2024) Daily District Data</p>
+        </div>
+        <div>
+          <h3>KEY TARGET</h3>
+          <p>May Low-Evapotranspiration ($ET_0$) Prediction</p>
+        </div>
+        <div>
+          <h3>CORE ENGINE</h3>
+          <p>Distributed Hadoop / Hive / Spark Ecosystem</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <section class="cs-section">
+      <h2>Project Overview</h2>
+      <p>Managing water resources and agricultural planning across Sri Lanka's diverse climatic zones requires long-term, high-resolution climate analytics rather than static seasonal approximations.</p>
+      <p>Engineered on an enterprise distributed big-data architecture, this system analyzes regional precipitation extremes and shifting seasonal trends while modeling low-evapotranspiration events during critical agricultural transition windows.</p>
+      <div class="callout">
+        <strong>Business & Environmental Impact:</strong> Replaces static water-allocation schedules with dynamic, weather-driven evapotranspiration estimates—mitigating agricultural risks during the Maha and Yala seasons and optimizing reservoir usage.
+      </div>
+    </section>
+
+    <!-- Section 2: Technical Architecture -->
+    <section class="cs-section">
+      <h2>Technical Architecture & Methodology</h2>
+      
+      <div class="pipeline-wrapper">
+        <div class="pipeline-container">
+          <div class="pipeline-step">
+            <div class="step-badge">01</div>
+            <div class="step-card">
+              <div class="step-title">Raw Climate Data Ingestion</div>
+              <p class="step-desc">2010–2024 daily district readings: Temp, Precip, Wind, Radiation, and Evapotranspiration</p>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">02</div>
+            <div class="step-card">
+              <div class="step-title">HDFS Storage (Hadoop)</div>
+              <p class="step-desc">Distributed storage layer hosting raw multi-year climate observations</p>
+              <span class="step-tag">Distributed Storage</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">03</div>
+            <div class="step-card">
+              <div class="step-title">Distributed Processing Layer</div>
+              <p class="step-desc">MapReduce batch aggregations, Hive SQL seasonal queries, and Spark MLlib pipelines</p>
+              <span class="step-tag">Hadoop / Hive / Spark</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">04</div>
+            <div class="step-card">
+              <div class="step-title">Analytics & Visualization</div>
+              <p class="step-desc">Tableau stakeholder dashboards and Apache Zeppelin model validation notebooks</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="figcaption">Figure 1: Multi-tier big data processing framework for climate analytics.</p>
+
+      <h3>1. Multi-Tier Distributed Processing Pipeline</h3>
+      <p>The processing architecture splits workload responsibilities across three dedicated engine layers to balance batch throughput and in-memory execution speed:</p>
+      <ul>
+        <li><strong>Batch Storage & Computation (Hadoop MapReduce):</strong> Processed raw daily weather records across all Sri Lankan districts to compute monthly precipitation/temperature aggregates and isolate historical rainfall extremes.</li>
+        <li><strong>Structured Analytics (Apache Hive):</strong> Formulated distributed SQL queries to compute seasonal evapotranspiration averages across primary agricultural seasons (Maha and Yala) and identify temperate urban microclimates.</li>
+        <li><strong>In-Memory Analytics (Apache Spark / PySpark):</strong> Executed high-throughput solar radiation threshold analysis and calculated weekly temperature extremes during peak heat months.</li>
+      </ul>
+
+      <h3>2. Predictive Modeling with Spark MLlib</h3>
+      <p>To assist agricultural planners during May—a critical planting and irrigation transition window—a distributed regression pipeline was constructed in Spark MLlib to model factors driving low evapotranspiration ($ET_0$):</p>
+      
+      <p><strong>Feature Pipeline:</strong> Solar radiation, precipitation hours, sunshine duration, average temperature, and wind speed assembled via <code>VectorAssembler</code> and scaled prior to model training.</p>
+
+      <p><strong>Workflow:</strong> Vectorization, feature scaling, 80/20 train-test splitting, and regression model evaluation performed entirely in-memory.</p>
+
+      <p><strong>Primary Insight:</strong> Extended precipitation hours combined with decreased sunshine duration served as the primary co-drivers of low evapotranspiration, providing actionable parameters for dynamic irrigation scheduling.</p>
+    </section>
+
+    <!-- Section 3: Engine Breakdown & Benchmarking -->
+    <section class="cs-section">
+      <h2>Data Processing & Analytics Breakdown</h2>
+      <p>A summary of engine-level responsibilities across the climate data ecosystem:</p>
+
+      <div class="summary-box" style="padding: 0; overflow: hidden; margin: 24px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.03);">
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Big Data Layer</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Core Operations</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Analytical Output</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">MapReduce Batch Engine</td>
+              <td style="padding: 14px 18px;">Batch aggregation across 14 years of district records</td>
+              <td style="padding: 14px 18px;">Historical extreme rainfall & temperature events</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Hive SQL Layer</td>
+              <td style="padding: 14px 18px;">Distributed SQL queries on partitioned tables</td>
+              <td style="padding: 14px 18px;">Yala & Maha season $ET_0$ averages & zone rankings</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Spark MLlib Pipeline</td>
+              <td style="padding: 14px 18px;">In-memory feature transformation & regression</td>
+              <td style="padding: 14px 18px;">May Evapotranspiration ($ET_0$) driver predictions</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Key Insights & Technical Trade-offs -->
+    <section class="cs-section">
+      <h2>Key Insights & Technical Trade-offs</h2>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>In-Memory vs. Disk-Based Execution:</strong>
+            Migrating complex time-series threshold calculations from MapReduce to Spark in-memory DataFrames reduced iterative analysis runtime significantly across the multi-year dataset.
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>Feature Engineering for Evapotranspiration:</strong>
+            Combining sunshine duration and precipitation hours as interaction features in Spark MLlib yielded higher predictive accuracy for low $ET_0$ days than using temperature alone.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Granular District Partitioning:</strong>
+            Partitioning Hive data tables by district and year optimized query execution times for regional agricultural assessment queries.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Recommendations & Related Articles -->
+    <section class="cs-section">
+      <h2>Operational Next Steps & Technical Articles</h2>
+      
+      <h3>1. Real-Time Telemetry Streaming</h3>
+      <p>Extend the batch architecture by integrating Apache Kafka and Spark Streaming to process live hourly weather station feeds for real-time flood warnings.</p>
+
+      <h3>2. Related Technical Publications</h3>
+      <p>Read the in-depth implementation articles published on Medium:</p>
+      <ul>
+        <li><a href="#" target="_blank" rel="noopener">Climate Trends & Extreme Weather Analysis in Sri Lanka</a></li>
+        <li><a href="#" target="_blank" rel="noopener">Predictive Evapotranspiration Modeling with Spark MLlib</a></li>
+      </ul>
+    </section>
+
+    <!-- Footer Divider and Icons -->
+    <div class="btn-divider srilanka_climate_analysis-divider"></div>
+    <div class="social-row srilanka_climate_analysis-social">
+      <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+    <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div>
+</div>
+
+</body>
+</html>
