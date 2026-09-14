@@ -1363,8 +1363,7 @@ figcaption,
   font-size: 0.95rem;
   font-weight: 500;
   color: var(--text);
-  text-align: justify;
-  text-justify: inter-word;
+  text-align: left;
 }
 
 
