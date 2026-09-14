@@ -39,7 +39,7 @@ h1,h2,h3{
 h1{ font-size: clamp(2.2rem, 5vw, 3.2rem); }
 h2{ font-size: clamp(1.4rem, 3vw, 1.8rem); }
 h3{ font-size: 1.1rem; }
-p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
+p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
 .muted{ color: var(--text-muted); }
 
 /* =========================================================
@@ -80,7 +80,7 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 }
 
 .wrap {
-  max-width: 760px;
+  max-width: 1000px;
   width: 100%;
   margin: 0 auto;
   padding: 64px 44px 24px;
@@ -132,7 +132,7 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 
 .hero-divider {
   width: 100%;
-  max-width: 850px;
+  max-width: 100%;
   height: 1px;
   background-color: var(--line);
   margin-bottom: 24px;
@@ -148,7 +148,7 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
   display: block;
 }
 
-.hero .lede{ font-size: 1.05rem; max-width: 56ch; margin-bottom: 30px; color: var(--text-muted); }
+.hero .lede{ font-size: 1.05rem; max-width: 100%; margin-bottom: 30px; color: var(--text-muted); }
 .kpi-row{ display: flex; flex-wrap: wrap; gap: 0; border-top: 1px solid var(--line); margin-top: 26px; }
 .kpi{ flex: 1 1 200px; padding: 18px 24px 0 0; border-right: 1px solid var(--line); margin-right: 24px; }
 .kpi:last-child{ border-right: none; }
@@ -156,7 +156,7 @@ p{ margin: 0 0 1em 0; max-width: 62ch; color: #C7C7C7; }
 .kpi .label{ font-size: .82rem; color: var(--text-muted); }
 
 .home .wrap {
-  max-width: 100%;
+  max-width: 1100px;
   padding-top: 0;
   padding-bottom: 0px;
 }
@@ -211,13 +211,20 @@ body.home .social-row {
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 0 !important;
   display: block !important;
   width: 100% !important;
-  margin-top: 400px !important; /* Reduced from auto / default margin */
+  margin-top: 450px !important;
   padding-top: 0 !important;
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
 }
+
+/* Increase space above the title on the home page only */
+body.home .hero {
+  padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
+}
+
 
 /* =========================================================
    Social icon row (home page, bottom center)
@@ -298,6 +305,127 @@ section:last-of-type{ border-bottom: none; }
   margin-top: 6px;
 }
 .proj-row .view:hover{ opacity: .75; }
+
+
+/* =========================================================
+   2-Column Portfolio Grid Layout
+   ========================================================= */
+
+/* Expand main container width on portfolio page to comfortably fit 2 cards */
+body:has(.portfolio-grid) .wrap {
+  max-width: 1000px;
+}
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  margin-top: 30px;
+}
+
+.proj-card {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.proj-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+}
+
+/* Image wrapper container */
+.proj-card-img {
+  width: 100%;
+  height: 260px; /* Fixed height for consistent card alignment */
+  background-color: var(--bg-panel);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+
+/* Image stretches full width with no side gaps */
+.proj-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Fills full width and height of the container */
+  object-position: center; /* Centers image content */
+  border: none;
+  border-radius: 0;
+}
+
+.proj-card-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.proj-card-content h3 {
+  font-size: 1.2rem;
+  margin-top: 8px;
+  margin-bottom: 12px;
+  color: var(--text);
+}
+
+.proj-card-content p {
+  font-size: 0.92rem;
+  line-height: 1.6;
+  color: #C7C7C7;
+  margin-bottom: 20px;
+  flex: 1; /* Pushes the 'View case study' button to the bottom */
+}
+
+.proj-card-content .view {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--accent);
+  text-decoration: none;
+  align-self: flex-start;
+  transition: color 0.2s ease;
+}
+
+.proj-card-content .view:hover {
+  color: #38BDF8;
+}
+
+/* Responsive adjustment for small screens */
+@media (max-width: 720px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+/* Custom spacing for articles page divider */
+.btn-divider.portfolio-divider {
+  margin-top: 30px;  
+  margin-bottom: 4px; /* Adjust this pixel value to increase or decrease the gap */
+}
+
+/* Reduce social icons gap specifically on the articles page */
+.portfolio-hero ~ .social-row,
+.wrap:has(.portfolio-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.portfolio .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0px !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+
 
 /* =========================================================
    Article list
@@ -429,9 +557,10 @@ section:last-of-type{ border-bottom: none; }
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 0 !important;
   display: block !important;
   width: 100% !important;
-  margin-top: 0px !important; /* Reduced from auto / default margin */
+  margin-top: 3px !important;
   padding-top: 0 !important;
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
@@ -442,10 +571,13 @@ section:last-of-type{ border-bottom: none; }
 /* =========================================================
    Contact Section
    ========================================================= */
+
 .contact-list {
   list-style: none;
   padding: 0;
-  margin: 0 !important; /* Force top/bottom margin reset */
+  max-width: 900px; /* Adjust this value to set your preferred width */
+  width: 100%;
+  margin: 0 auto !important; /* Centers the narrow table horizontally */
 }
 
 .contact-list li {
@@ -494,6 +626,8 @@ section:last-of-type{ border-bottom: none; }
 
 .direct-reach-section .contact-list {
   margin-top: 8px !important; /* Small clean gap right below the paragraph */
+  margin-left: auto !important;
+  margin-right: auto !important;
   padding-top: 0 !important;
   margin-bottom: 10px;
 }
@@ -508,7 +642,7 @@ section:last-of-type{ border-bottom: none; }
 .btn-divider {
   width: 100%;
   border-bottom: 1px solid var(--line);
-  margin-top: 65px; /* Space between button and the line */
+  margin-top: 80px; /* Space between button and the line */
   margin-bottom: 0;
 } 
 
@@ -562,13 +696,15 @@ section:last-of-type{ border-bottom: none; }
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 0 !important;
   display: block !important;
   width: 100% !important;
-  margin-top: 280px !important; /* Reduced from auto / default margin */
+  margin-top: 280px !important;
   padding-top: 0 !important;
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
 }
+
 
 /* =========================================================
    Case study / project page
@@ -671,6 +807,42 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   padding-top: 0;
 }
 
+/* Enable vertical stacking and ordering */
+.about-bio-section {
+  margin-top: 40px;
+  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure the heading stays at the very top */
+.about-bio-section .section-head {
+  width: 100%;
+  margin-bottom: 35px;
+  order: 0;
+}
+
+/* Force paragraph text to load first */
+.about-bio-section p {
+  max-width: none;
+  margin-top: 0;
+  order: 1;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Force photo to load below the paragraph text in the center */
+.bio-photo-float {
+  float: none;
+  display: block;
+  width: 260px;
+  height: auto;
+  margin: 32px auto 20px auto;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  order: 2; /* Pushes image down below order: 1 elements */
+}
+
 /* Ensure the sub-heading spans full width above the photo/text */
 .about-bio-section .section-head {
   width: 100%;
@@ -683,24 +855,6 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   clear: both;
 }
 
-/* Floating Photo on the Right */
-.bio-photo-float {
-  float: right;
-  width: 260px; /* Fixed width for the portrait */
-  height: auto;
-  margin-top: 0; /* Reset individual offset so it aligns with paragraph 1 */
-  margin-left: 32px; /* Gap between text and image */
-  margin-bottom: 20px; /* Gap before wrapped text beneath the image */
-  border-radius: 8px;
-  border: 1px solid var(--line);
-}
-
-/* Allow paragraphs to wrap freely without negative margins */
-.about-bio-section p {
-  max-width: none;
-  margin-top: 0;
-}
-
 /* Mobile responsive handling */
 @media (max-width: 720px) {
   .about-bio-section {
@@ -708,9 +862,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 
   .bio-photo-float {
-    float: none;
-    display: block;
-    margin: 0 auto 24px auto;
+    margin: 24px auto;
     width: 200px;
   }
 }
@@ -856,7 +1008,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 
 /* Increase space between lede text and button on resume page */
 .resume-hero .lede {
-  margin-bottom: 20px !important; /* Adjust this value (e.g., 24px to 36px) to expand the gap */
+  margin-bottom: 15px !important; /* Adjust this value (e.g., 24px to 36px) to expand the gap */
 }
 
 /* Button styling specifically for the Resume page */
@@ -887,9 +1039,10 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   text-align: center !important;
   margin-left: auto !important;
   margin-right: auto !important;
+  padding-left: 0 !important;
   display: block !important;
   width: 100% !important;
-  margin-top: 280px !important; /* Reduced from auto / default margin */
+  margin-top: 280px !important;
   padding-top: 0 !important;
   padding-bottom: 0px !important;
   margin-bottom: 0 !important;
@@ -942,16 +1095,745 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
-/* Increase space above the title on the home page only */
-body.home .hero {
-  padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
+/* =========================================================
+   Case Study Page Styles
+   ========================================================= */
+
+/* Portfolio Tab Navigation Styles */
+  .portfolio-tabs {
+    display: flex;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin: 2rem 0;
+    width: 100%;
+    margin-top: 5px !important;
+    margin-bottom: 50px !important;
+    border-bottom: none;
+    padding-bottom: 12px;
+  }
+
+  .tab-btn {
+    width: 100%;
+    box-sizing: border-box;
+    background: #1a1a1a;
+    border: 1px solid #333333;
+    color: #a0a0a0;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    min-width: 320px; /* Adjust this value up (e.g., 200px, 220px) to make them wider */
+    padding: 10px 24px;
+    text-align: center;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+/*  Hover State for Unselected Button */
+    .tab-btn:hover:not(.active) {
+      background-color: #262626; /* Slightly lighter background on hover */
+      border-color: #4f4f4f;     /* Brighter border on hover */
+      color: #ffffff;
+  }
+
+  .tab-btn:hover {
+    color: var(--text, #fff);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+/* Active (Selected) Button State */
+  .tab-btn.active {
+    background-color: #3f72af; /* Highlighted background color */
+    color: #ffffff;
+    border: 1px solid #6495ed; /* Matching active border */
+    box-shadow: 0 0 0 1px rgba(91, 140, 212, 0.4);
+  }
+
+  /* Sub-page Grid Toggle */
+  .tab-content {
+    display: none;
+  }
+
+  .tab-content.active {
+    display: block;
+  }
+
+
+/* Header & Meta Row */
+.cs-header {
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
 }
 
-/* Horizontal divider line above social icons strictly on the Home page */
-body.home .social-row {
-  border-top: 1px solid var(--line) !important;
+.cs-header h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.meta-row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 18px 0;
+}
+
+.link-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 35px;
+  flex-wrap: wrap;
+}
+
+/* Summary Box Grid */
+.summary-box {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin: 32px 0;
+}
+
+.summary-box .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.summary-box h3 {
+  font-size: 0.78rem;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.summary-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+/* Section Labels & Headings */
+.cs-section {
+  padding: 40px 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.cs-section:last-of-type {
+  border-bottom: none;
+}
+
+.cs-section h2 {
+  margin-bottom: 16px;
+  font-size: 1.6rem;
+}
+
+.cs-section h3 {
+  font-size: 1.1rem;
+  margin-top: 28px;
+  margin-bottom: 10px;
+  color: var(--text);
+}
+
+.cs-section .part-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* Architecture Flowchart & Code Blocks */
+pre {
+  background: var(--bg-panel);
+  color: #DCDCDC;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  padding: 20px;
+  overflow-x: auto;
+  line-height: 1.45;
+  margin: 20px 0 10px;
+}
+
+code {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 2px 6px;
+  border-radius: 4px;
+  color: var(--accent);
+}
+
+figure {
+  margin: 24px 0;
+}
+
+figcaption,
+.figcaption {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 12px;
+  margin-bottom: 40px;
+  width: 100%;
+  max-width: 100% !important;
+  display: block;
+  clear: both;
+  white-space: nowrap !important;
+  text-align: center !important;
+  text-align-last: center !important;
+}
+
+/* Callouts */
+.callout {
+  background: var(--bg-panel);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 6px 6px 0;
+  padding: 16px 20px;
+  margin: 24px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+.callout strong {
+  color: var(--accent);
+}
+
+/* Numbered Insights List */
+.rec-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+.rec-list li {
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: 36px 1fr;
+  gap: 16px;
+  align-items: start;
+}
+
+.rec-list li:first-child {
+  border-top: none;
+}
+
+.rec-list .n {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+/* Responsive Handling */
+@media (max-width: 720px) {
+  .summary-box .grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cs-section {
+    padding: 28px 0;
+  }
+
+  pre {
+    font-size: 0.72rem;
+    padding: 14px;
+  }
+}
+
+/* Justify text content in case study sections */
+.cs-section p {
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+/* Optional: Justify summary box paragraph text as well */
+.summary-box p {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+
+/* =========================================================
+   Modern Vertical Pipeline Architecture
+   ========================================================= */
+
+/* Outer Container Box for the Diagram */
+.pipeline-wrapper {
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 32px 24px;
+  margin: 32px auto 12px auto;
+  max-width: 600px;            /* Optional: limits the outer container width directly */
+  width: 100%;
+
+}
+
+/* Adjust Inner Pipeline Alignment */
+.pipeline-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+/* Make Step Cards Slightly Darker for Visual Contrast against Wrapper */
+.step-card {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.pipeline-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  width: 100%;
+}
+
+.step-badge {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  background: rgba(56, 189, 248, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  padding: 6px 10px;
+  min-width: 38px;
+  text-align: center;
+}
+
+.step-card {
+  flex: 1;
+  background: var(--bg-panel);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 16px 20px;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.step-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.step-title {
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-bottom: 6px;
+}
+
+.step-desc {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.step-tag {
+  display: inline-block;
+  margin-top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--accent-2, #A78BFA);
+  background: rgba(167, 139, 250, 0.1);
+  border: 1px solid rgba(167, 139, 250, 0.2);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.pipeline-arrow {
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  margin: 10px 0;
+  opacity: 0.6;
+}
+
+
+/* =========================================================
+   Trpadvisor Reviews Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.tripadvisor_reviews-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.tripadvisor_reviews-hero ~ .social-row,
+.wrap:has(.tripadvisor_reviews-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.tripadvisor_reviews .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
   width: 100% !important;
-  max-width: 600px !important; /* Adjust line width as desired */
-  padding-top: 24px !important;
-  margin-top: 50px !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+   Pizza Sales Analysis Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.pizza_sales-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.pizza_sales-hero ~ .social-row,
+.wrap:has(.pizza_sales-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.pizza_sales .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   Dashboard Project Pages
+   ========================================================= */
+
+/* Vertical Stacked Gallery Layout */
+.dashboard-gallery-vertical {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 24px;
+  width: 100%;
+}
+
+.dash-card-large {
+  display: block;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.dash-card-large:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+}
+
+.dash-card-large-img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+
+/* =========================================================
+   Healthcare Dashboard Project
+   ========================================================= */
+
+/* Custom spacing for page divider above social  row */
+.btn-divider.healthcare_dashboard-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.healthcare_dashboard-hero ~ .social-row,
+.wrap:has(.healthcare_dashboard-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+/* Remove bottom border from wrap/content container on the healthcare dashboard page */
+body.healthcare_dashboard .wrap,
+body.healthcare_dashboard .content,
+body.healthcare_dashboard section,
+body.healthcare_dashboard .copyright-text {
+  border-bottom: 0 !important;
+  border-bottom-style: none !important;
+  box-shadow: none !important;
+}
+
+body.healthcare_dashboard .wrap::after,
+body.healthcare_dashboard .content::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Position and style copyright text */
+.healthcare_dashboard .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+   Merchandise Sales Dashboard Project
+   ========================================================= */
+
+/* Custom spacing for page divider above social  row */
+.btn-divider.merchandise_sales_dashboard-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.merchandise_sales_dashboard-hero ~ .social-row,
+.wrap:has(.merchandise_sales_dashboard-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+/* Remove bottom border from wrap/content container on the healthcare dashboard page */
+body.merchandise_sales_dashboard .wrap,
+body.merchandise_sales_dashboard .content,
+body.merchandise_sales_dashboard section,
+body.merchandise_sales_dashboard .copyright-text {
+  border-bottom: 0 !important;
+  border-bottom-style: none !important;
+  box-shadow: none !important;
+}
+
+body.merchandise_sales_dashboard .wrap::after,
+body.merchandise_sales_dashboard .content::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* Position and style copyright text */
+.merchandise_sales_dashboard .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+  Sri Lanka Climate Analysis Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.srilanka_climate_analysis-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.srilanka_climate_analysis-hero ~ .social-row,
+.wrap:has(.srilanka_climate_analysis-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.srilanka_climate_analysis .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+  Supermarket Sales Forecasting Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.supermarket_sales_forecasting-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.supermarket_sales_forecasting-hero ~ .social-row,
+.wrap:has(.supermarket_sales_forecasting-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.supermarket_sales_forecasting .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+
+/* =========================================================
+  DR Classification Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.dr_classification-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.dr_classification-hero ~ .social-row,
+.wrap:has(.dr_classification-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.dr_classification .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+  Urban Air Quality Pattern & Drift Analysis Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.temporal_drift_air_quality-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.temporal_drift_air_quality-hero ~ .social-row,
+.wrap:has(.temporal_drift_air_quality-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.temporal_drift_air_quality .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+  Regional Energy Demand Forecasting & Planning Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.energy_demand_forecasting-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.energy_demand_forecasting-hero ~ .social-row,
+.wrap:has(.energy_demand_forecasting-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.energy_demand_forecasting .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
+}
+
+/* =========================================================
+  Cloud-Based Business Operations & Analytics Platform Project
+   ========================================================= */
+
+/* Custom spacing for page divider */
+.btn-divider.lugx_cloud_microservices-divider {
+  margin-top: 19px;  
+  margin-bottom: 4px; 
+}
+
+/* Reduce social icons gap  */
+.lugx_cloud_microservices-hero ~ .social-row,
+.wrap:has(.lugx_cloud_microservices-hero) .social-row {
+  margin-bottom: 330px !important;
+}
+
+.lugx_cloud_microservices .copyright-text {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  padding-left: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  margin-top: 280px !important;
+  padding-top: 0 !important;
+  padding-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
