@@ -412,6 +412,24 @@ body:has(.portfolio-grid) .wrap {
   }
 }
 
+/* Adjust image container height so full image fits */
+  .proj-card-img {
+    height: auto !important;
+    max-height: 220px;
+    background-color: var(--bg-panel);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Show full thumbnail image without side cropping */
+  .proj-card-img img {
+    object-fit: contain !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
 /* Custom spacing for articles page divider */
 .btn-divider.portfolio-divider {
   margin-top: 30px;  
