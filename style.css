@@ -410,7 +410,19 @@ body:has(.portfolio-grid) .wrap {
     grid-template-columns: 1fr;
     gap: 24px;
   }
+ 
+  .proj-card-img {
+    height: auto;
+    aspect-ratio: 16 / 9;
+  }
+ 
+  .proj-card-img img {
+    height: 100%;
+    object-fit: contain;
+    background-color: var(--bg-panel);
+  }
 }
+
 
 /* Custom spacing for articles page divider */
 .btn-divider.portfolio-divider {
