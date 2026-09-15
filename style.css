@@ -225,6 +225,20 @@ body.home .hero {
   padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
 }
 
+/* Base styling for brand link */
+a.brand {
+  text-decoration: none !important;
+  color: inherit !important;
+  cursor: pointer;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Hover color for all subpages EXCEPT Home */
+body:not(.home) a.brand:hover {
+  color: #38BDF8 !important;
+  opacity: 1;
+}
+
 /* Mobile fix for Home page footer text scaling */
 @media (max-width: 720px) {
   body.home .copyright-text,
