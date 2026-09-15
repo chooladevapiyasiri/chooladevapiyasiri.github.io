@@ -225,6 +225,18 @@ body.home .hero {
   padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
 }
 
+/* Mobile fix for Home page footer text scaling */
+@media (max-width: 720px) {
+  body.home .copyright-text,
+  body.home p.copyright-text {
+    font-size: 0.68rem !important;
+    -webkit-text-size-adjust: none !important; /* Disables mobile browser auto-inflation */
+    text-size-adjust: none !important;
+    white-space: normal !important;            /* Allows clean text flow on narrow viewports */
+    line-height: 1.4 !important;
+  }
+}
+
 
 /* =========================================================
    Social icon row (home page, bottom center)
