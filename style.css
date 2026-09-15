@@ -127,7 +127,7 @@ p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
   letter-spacing: 3px;
   font-size: clamp(2.1rem, 3.6vw, 2.7rem);
   white-space: nowrap;
-  margin-bottom: 24px;
+  margin-bottom: 40px;
 }
 
 .hero-divider {
@@ -144,7 +144,7 @@ p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
   text-transform: uppercase;
   letter-spacing: 3.5px;
   font-size: clamp(1.3rem, 2.5vw, 1.6rem);
-  margin-bottom: 24px;
+  margin-bottom: 34px;
   display: block;
 }
 
