@@ -892,6 +892,18 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
+/* Add space below the single-line subtitle on mobile */
+@media (max-width: 720px) {
+  .hero-subtitle, 
+  .about-hero p, 
+  header p {
+    font-size: 0.82rem;
+    word-spacing: -0.5px;
+    white-space: nowrap;
+    margin-bottom: 2.5rem !important; /* Adjust this value to add more or less vertical space */
+  }
+}
+
 /* Skills Grid Layout */
 .skills-grid {
   display: grid;
