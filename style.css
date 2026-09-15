@@ -428,15 +428,16 @@ body:has(.portfolio-grid) .wrap {
 /* Mobile fix for side-by-side portfolio tabs */
 @media (max-width: 720px) {
   .portfolio-tabs {
-    gap: 10px;
+    gap: 8px;
     margin: 1rem 0 30px 0 !important;
   }
 
   .tab-btn {
     min-width: 0 !important; /* Allows buttons to shrink */
-    width: 50%;              /* Fits both buttons 50/50 across the screen */
-    padding: 10px 8px;       /* Reduces side padding so text isn't clipped */
-    font-size: 0.85rem;      /* Slightly smaller text for tight mobile screens */
+    flex: 1;                /* Distributes space equally */
+    white-space: nowrap;            /* Fits both buttons 50/50 across the screen */
+    padding: 10px 4px;       /* Reduces side padding so text isn't clipped */
+    font-size: 0.8rem;      /* Slightly smaller text for tight mobile screens */
   }
 }
 
