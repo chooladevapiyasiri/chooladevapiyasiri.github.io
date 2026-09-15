@@ -881,6 +881,17 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
+/* Keep subtitle on a single line on mobile */
+@media (max-width: 720px) {
+  .hero-subtitle, 
+  .about-hero p, 
+  header p { /* Targets the subtitle paragraph under the ABOUT heading */
+    font-size: 0.82rem;     /* Slightly shrinks the text */
+    word-spacing: -0.5px;   /* Reduces wide space between words */
+    white-space: nowrap;    /* Prevents the text from wrapping to a 2nd line */
+  }
+}
+
 /* Skills Grid Layout */
 .skills-grid {
   display: grid;
