@@ -900,7 +900,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
     font-size: 0.82rem;
     word-spacing: -0.5px;
     white-space: nowrap;
-    margin-bottom: 2.5rem !important; /* Adjust this value to add more or less vertical space */
+    margin-bottom: 3.5rem !important; /* Adjust this value to add more or less vertical space */
   }
 }
 
