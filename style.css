@@ -404,31 +404,11 @@ body:has(.portfolio-grid) .wrap {
   color: #38BDF8;
 }
 
-/* FORCE DESKTOP (Screens wider than 720px) */
-@media screen and (min-width: 721px) {
-  .proj-card-img {
-    height: 260px !important; /* Restores fixed container height */
-    overflow: hidden !important;
-  }
-
-  .proj-card-img img {
-    object-fit: cover !important; /* Crops image to fill container edge-to-edge */
-    width: 100% !important;
-    height: 100% !important;
-  }
-}
-
-/* FORCE MOBILE (Screens 720px and narrow) */
-@media screen and (max-width: 720px) {
-  .proj-card-img {
-    height: auto !important;
-    max-height: 220px !important;
-  }
-
-  .proj-card-img img {
-    object-fit: contain !important; /* Fits full image without cutting sides */
-    width: 100% !important;
-    height: 100% !important;
+/* Responsive adjustment for small screens */
+@media (max-width: 720px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
 
