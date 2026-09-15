@@ -886,8 +886,8 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   .hero-subtitle, 
   .about-hero p, 
   header p { /* Targets the subtitle paragraph under the ABOUT heading */
-    font-size: 0.82rem;     /* Slightly shrinks the text */
-    word-spacing: -0.5px;   /* Reduces wide space between words */
+    font-size: 0.92rem;     /* Slightly shrinks the text */
+    word-spacing: -0.3px;   /* Reduces wide space between words */
     white-space: nowrap;    /* Prevents the text from wrapping to a 2nd line */
   }
 }
@@ -900,12 +900,12 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
     font-size: 0.82rem;
     word-spacing: -0.5px;
     white-space: nowrap;
-    margin-bottom: 50px !important; /* Adds clear gap below the sentence */
+    margin-bottom: 20px !important; /* Adds clear gap below the sentence */
   }
 
   /* Ensures section heading below stays pushed down */
   .about-bio-section {
-    margin-top: 40px !important; 
+    margin-top: 10px !important; 
   }
 }
 
