@@ -404,6 +404,13 @@ body:has(.portfolio-grid) .wrap {
   color: #38BDF8;
 }
 
+/* Desktop default layout (Unchanged) */
+.proj-card-img img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
 /* Responsive adjustment for small screens */
 @media (max-width: 720px) {
   .portfolio-grid {
