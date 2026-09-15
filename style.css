@@ -404,34 +404,29 @@ body:has(.portfolio-grid) .wrap {
   color: #38BDF8;
 }
 
-/* Desktop default layout (Unchanged) */
-.proj-card-img img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-}
+/* FORCE DESKTOP (Screens wider than 720px) */
+@media screen and (min-width: 721px) {
+  .proj-card-img {
+    height: 260px !important; /* Restores fixed container height */
+    overflow: hidden !important;
+  }
 
-/* Responsive adjustment for small screens */
-@media (max-width: 720px) {
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 24px;
+  .proj-card-img img {
+    object-fit: cover !important; /* Crops image to fill container edge-to-edge */
+    width: 100% !important;
+    height: 100% !important;
   }
 }
 
-/* Adjust image container height so full image fits */
+/* FORCE MOBILE (Screens 720px and narrow) */
+@media screen and (max-width: 720px) {
   .proj-card-img {
     height: auto !important;
-    max-height: 220px;
-    background-color: var(--bg-panel);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    max-height: 220px !important;
   }
 
-  /* Show full thumbnail image without side cropping */
   .proj-card-img img {
-    object-fit: contain !important;
+    object-fit: contain !important; /* Fits full image without cutting sides */
     width: 100% !important;
     height: 100% !important;
   }
