@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Urban Air Quality Pattern & Drift Analysis — Chooladeva Piyasiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="temporal_drift_air_quality">
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasiri</span>
+  <ul class="topnav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="../articles.html">Articles</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- Header Section -->
+    <header class="cs-header">
+      <h1>Urban Air Quality Pattern & Drift Analysis</h1>
+      <p class="lede">An unsupervised machine learning and statistical drift analysis framework applied to a full year of hourly multisensor air quality data (9,358 readings) from an Italian city to quantify seasonal pollution regime shifts.</p>
+      
+      <div class="meta-row">
+        <span class="tag">Python</span>
+        <span class="tag">Scikit-Learn</span>
+        <span class="tag">pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">SciPy</span>
+        <span class="tag">K-Means</span>
+        <span class="tag">PCA</span>
+      </div>
+
+      <div class="link-row">
+        <a href="https://github.com/chooladevapiyasiri/Clustering-and-Drift-Analysis-of-Air-Quality/tree/main" class="btn" target="_blank" rel="noopener">View GitHub Repository</a>
+      </div>
+    </header>
+
+    <!-- At-a-Glance Summary Box -->
+    <div class="summary-box">
+      <div class="grid">
+        <div>
+          <h3>DATASET SCOPE</h3>
+          <p>9,358 Hourly Sensor Readings (1 Full Year)</p>
+        </div>
+        <div>
+          <h3>MODEL SELECTION</h3>
+          <p>K-Means Clustering (k=3) via Elbow Method</p>
+        </div>
+        <div>
+          <h3>DRIFT METRIC</h3>
+          <p>Kullback–Leibler Divergence (KL = 0.0329)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <section class="cs-section">
+      <h2>Project Overview</h2>
+      <p>An unsupervised machine learning and statistical drift analysis framework applied to a full year of hourly multisensor air quality data (9,358 readings) from an Italian city.</p>
+      <p>By fitting independent K-Means clustering models across distinct seasonal periods (warm vs. cold), this project quantifies how underlying urban pollution regimes drift over time—evaluating centroid shifts, cluster membership redistributions, and Kullback–Leibler (KL) divergence to demonstrate why static models fail in dynamic environmental monitoring systems.</p>
+      <div class="callout">
+        <strong>Business & Environmental Impact:</strong> Demonstrates the failure modes of static monitoring models under seasonal environmental shifts, and proposes ongoing KL divergence monitoring as a practical signal for when re-clustering may be warranted.
+      </div>
+    </section>
+
+    <!-- Section 2: Technical Architecture -->
+    <section class="cs-section">
+      <h2>Technical Architecture & Analytical Pipeline</h2>
+      
+      <div class="pipeline-wrapper">
+        <div class="pipeline-container">
+          <div class="pipeline-step">
+            <div class="step-badge">01</div>
+            <div class="step-card">
+              <div class="step-title">Data Cleaning & Quality Assurance</div>
+              <p class="step-desc">Sentinel null handling (-200 mapping), iterative & linear interpolation, Winsorization, log transformations, and RobustScaling</p>
+              <span class="step-tag">Data Preprocessing</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">02</div>
+            <div class="step-card">
+              <div class="step-title">Seasonal Stratification & Clustering</div>
+              <p class="step-desc">Stratified into Period 1 (Warm: Mar–Aug 2004) and Period 2 (Cold: Sep 2004–Mar 2005) with independent K-Means ($k=3$)</p>
+              <span class="step-tag">Seasonal Stratification</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">03</div>
+            <div class="step-card">
+              <div class="step-title">Cluster Alignment & PCA Projection</div>
+              <p class="step-desc">Matched clusters via minimum Euclidean centroid distance and visual projections using Principal Component Analysis (PCA)</p>
+              <span class="step-tag">Cluster Matching</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">04</div>
+            <div class="step-card">
+              <div class="step-title">Drift Quantification Engine</div>
+              <p class="step-desc">Measured centroid distance shifts, cluster membership migrations, and overall Kullback–Leibler (KL) divergence</p>
+              <span class="step-tag">Drift Analysis</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="figcaption">Figure 1: End-to-end seasonal clustering, alignment, and statistical drift pipeline.</p>
+
+      <h3>1. Data Engineering & Feature Preparation</h3>
+      <p>To process raw sensor telemetry while preserving genuine pollution spikes, a robust data engineering workflow was established:</p>
+      <ul>
+        <li><strong>Null Handling & Feature Removal:</strong> Removed features with severe missingness ($>90\%$ missing, e.g., Non-Metanic Hydrocarbons / NMHC). Mapped sentinel error codes (-200) to nulls and imputed remaining missing values via iterative multivariate and linear interpolation.</li>
+        <li><strong>Signal Preservation:</strong> Outlier readings reflecting legitimate pollution spikes (e.g., peak traffic periods) were bounded using Winsorization rather than deletion.</li>
+        <li><strong>Distribution Normalization:</strong> Applied log-transformations followed by RobustScaler to minimize scaling distortion caused by right-skewed pollutant concentrations.</li>
+      </ul>
+
+      <h3>2. Seasonal Clustering & Drift Measurement</h3>
+      <p>K-Means models ($k=3$) were trained independently on Period 1 (Warm: Mar–Aug 2004) and Period 2 (Cold: Sep 2004–Mar 2005). Clusters converged on three distinct operational states: Low, Moderate, and High pollution.</p>
+      <p>Before quantifying drift across runs, Period 2 clusters were aligned to Period 1 counterparts using minimum Euclidean centroid distance matching.</p>
+
+      <p><strong>Centroid Shifts:</strong> High-Pollution cluster shifted significantly due to elevated $\text{NO}_x$ and $\text{NO}_2$ concentrations in winter.</p>
+
+      <p><strong>Membership Redistribution:</strong> Moderate cluster shrank by 27.1%, while Low (+23.6%) and High (+21.5%) clusters expanded dramatically.</p>
+
+      <p><strong>Kullback–Leibler (KL) Divergence:</strong> Calculated at $D_{\text{KL}} = 0.0329$, indicating localized, cluster-specific drift rather than total structural breakdown.</p>
+    </section>
+
+    <!-- Section 3: Data Processing & Performance Breakdown -->
+    <section class="cs-section">
+      <h2>Key Performance & Cluster Metrics Breakdown</h2>
+      <p>A summary of cluster evaluation metrics and structural observations across warm and cold seasons:</p>
+
+      <div class="summary-box" style="padding: 0; overflow: hidden; margin: 24px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.03);">
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Metric / Evaluation</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Period 1 (Warm Season)</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Period 2 (Cold Season)</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Structural Insight</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Silhouette Score</td>
+              <td style="padding: 14px 18px;">0.2558 (Weak-Moderate)</td>
+              <td style="padding: 14px 18px;">0.2676 (Weak-Moderate)</td>
+              <td style="padding: 14px 18px;">Expected for continuous pollutant gradients rather than naturally distinct groups.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Davies–Bouldin Index</td>
+              <td style="padding: 14px 18px;">1.2724 (Stable)</td>
+              <td style="padding: 14px 18px;">1.2786 (Stable)</td>
+              <td style="padding: 14px 18px;">Consistent compactness/separation across seasons, despite shifting cluster composition.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Cluster Distribution</td>
+              <td style="padding: 14px 18px;">Centered in Moderate</td>
+              <td style="padding: 14px 18px;">Polarized to Low / High</td>
+              <td style="padding: 14px 18px;">Bimodal polarization driven by winter inversion layers.</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">PCA Projection (PC1/PC2)</td>
+              <td style="padding: 14px 18px;">Concentrated Baseline</td>
+              <td style="padding: 14px 18px;">Shifted along PC1</td>
+              <td style="padding: 14px 18px;">Visual expansion of High-Pollution state toward center space.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Key Insights & Technical Trade-offs -->
+    <section class="cs-section">
+      <h2>Key Insights & MLOps Takeaways</h2>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>Concept & Data Drift in Environmental Systems:</strong>
+            Environmental models suffer from severe seasonal drift. Atmospheric boundary layer changes in winter trap primary pollutants closer to ground level, altering feature correlations.
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>Failure of Static Models:</strong>
+            A single static clustering model trained on warm-season data under-predicts the frequency and severity of extreme winter pollution events.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Continuous Monitoring Strategy:</strong>
+            Recommends tracking KL divergence between successive periods as an early-warning signal, with a validated threshold to be established through further testing before triggering automated re-clustering.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Recommendations & Related Tools -->
+    <section class="cs-section">
+      <h2>Tools & Operational Next Steps</h2>
+      
+      <h3>1. Technology Stack</h3>
+      <p>Tools and libraries utilized across statistical evaluation and unsupervised model pipelines:</p>
+      <ul>
+        <li><strong>Core Analytics & Statistics:</strong> Python, Pandas, NumPy, SciPy (KL Divergence calculations).</li>
+        <li><strong>Unsupervised Machine Learning:</strong> Scikit-Learn (K-Means, PCA, RobustScaler, IterativeImputer).</li>
+        <li><strong>Data Visualization:</strong> Matplotlib, Seaborn, Plotnine.</li>
+      </ul>
+
+      <h3>2. Production Deployment Extensions</h3>
+      <p>Integrate automated drift monitoring hooks into production pipelines to continuously log KL divergence metrics against incoming sensor streams, initiating retraining whenever atmospheric patterns shift.</p>
+    </section>
+
+    <!-- Footer Divider and Icons -->
+    <div class="btn-divider temporal_drift_air_quality-divider"></div>
+    <div class="social-row temporal_drift_air_quality-social">
+      <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+    <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div>
+</div>
+
+</body>
+</html>

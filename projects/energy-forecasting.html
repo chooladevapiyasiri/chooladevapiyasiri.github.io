@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regional Energy Demand Forecasting & Planning — Chooladeva Piyasiri</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+</head>
+<body class="energy_demand_forecasting">
+
+<nav class="topnav">
+  <span class="brand">Chooladeva Piyasiri</span>
+  <ul class="topnav-links">
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../about.html">About</a></li>
+    <li><a href="../portfolio.html" class="active">Portfolio</a></li>
+    <li><a href="../articles.html">Articles</a></li>
+    <li><a href="../contact.html">Contact</a></li>
+    <li><a href="../resume.html">Resume</a></li>
+  </ul>
+</nav>
+
+<div class="content">
+  <div class="wrap">
+
+    <!-- Header Section -->
+    <header class="cs-header">
+      <h1>Regional Energy Demand Forecasting & Planning</h1>
+      <p class="lede">A scalable, cloud-native machine learning framework built on AWS SageMaker to forecast half-hourly regional electricity demand across five Australian states using two decades of high-frequency weather and grid load data.</p>
+      
+      <div class="meta-row">
+        <span class="tag">Python</span>
+        <span class="tag">Scikit-learn</span>
+        <span class="tag">pandas</span>
+        <span class="tag">NumPy</span>
+        <span class="tag">SciPy</span>
+        <span class="tag">XGBoost</span>
+        <span class="tag">LightGBM</span>
+        <span class="tag">AWS SageMaker</span>
+      </div>
+
+      <div class="link-row">
+        <a href="https://github.com/chooladevapiyasiri/Short-term-Energy-Demand-Predictions" class="btn" target="_blank" rel="noopener">View GitHub Repository</a>
+      </div>
+    </header>
+
+    <!-- At-a-Glance Summary Box -->
+    <div class="summary-box">
+      <div class="grid">
+        <div>
+          <h3>GEOGRAPHIC SCOPE</h3>
+          <p>5 Australian States (NSW, VIC, QLD, SA, TAS)</p>
+        </div>
+        <div>
+          <h3>PRIMARY ESTIMATOR</h3>
+          <p>Stacked Meta-Model (Base: XGBoost/LightGBM | Meta: RF)</p>
+        </div>
+        <div>
+          <h3>TOP PREDICTIVE SIGNAL</h3>
+          <p>Wet Bulb Temperature (r = 0.394 Correlation)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section 1: Project Overview -->
+    <section class="cs-section">
+      <h2>Project Overview</h2>
+      <p>A scalable, cloud-native machine learning framework built on AWS SageMaker to forecast half-hourly regional electricity demand across five Australian states (New South Wales, Victoria, Queensland, South Australia, and Tasmania).</p>
+      <p>By integrating two decades of high-frequency weather and grid load data, the system addresses the regional divergence in energy consumption—training localized ensemble models, optimizing hyperparameter spaces per state, and deploying a stacked meta-model to ensure grid stability and operational efficiency.</p>
+      <div class="callout">
+        <strong>Strategic Grid Impact:</strong> Replaces uniform macro models with localized state-level ensembles to address regional climate divergence, enhancing operational efficiency and grid stability across eastern Australia.
+      </div>
+    </section>
+
+    <!-- Section 2: Technical Architecture -->
+    <section class="cs-section">
+      <h2>Technical Architecture & Cloud Workflow</h2>
+      
+      <div class="pipeline-wrapper">
+        <div class="pipeline-container">
+          <div class="pipeline-step">
+            <div class="step-badge">01</div>
+            <div class="step-card">
+              <div class="step-title">AWS SageMaker Data Processing</div>
+              <p class="step-desc">Time-interpolation for missing values, per-region IQR bound calculations, and Winsorization outlier capping</p>
+              <span class="step-tag">SageMaker Processing</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">02</div>
+            <div class="step-card">
+              <div class="step-title">Feature Engineering & Temporal Join</div>
+              <p class="step-desc">Time-aware <code>merge_asof</code> joins, seasonal indicators, Wet Bulb Temp, and pressure spread derivations</p>
+              <span class="step-tag">Feature Engineering</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">03</div>
+            <div class="step-card">
+              <div class="step-title">Per-Region Model Benchmarking</div>
+              <p class="step-desc">Trained 7 independent model pipelines per state (Extra Trees, GBDT, CatBoost, XGBoost, LightGBM, AdaBoost)</p>
+              <span class="step-tag">SageMaker Training</span>
+            </div>
+          </div>
+
+          <div class="pipeline-arrow">&darr;</div>
+
+          <div class="pipeline-step">
+            <div class="step-badge">04</div>
+            <div class="step-card">
+              <div class="step-title">Hyperparameter Tuning & Stacking</div>
+              <p class="step-desc">RandomizedSearchCV for broad exploration, followed by GridSearchCV for focused refinement on LightGBM, then final Stacked Meta-Learner deployment</p>
+              <span class="step-tag">Model Stacking</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="figcaption">Figure 1: End-to-end cloud-native data ingestion, feature pipeline, and stacked ensemble architecture on AWS SageMaker.</p>
+
+      <h3>1. Data Engineering & Feature Pipeline</h3>
+      <p>Data was processed on AWS SageMaker, combining half-hourly weather parameters (temperature, humidity, pressure, precipitation) with regional grid load records:</p>
+      <ul>
+        <li><strong>Temporal Alignment:</strong> Executed time-aware <code>merge_asof</code> joins to synchronize asynchronous weather sensor logs with electricity demand time-series, resampling the unified output into an hourly modeling table.</li>
+        <li><strong>Feature Engineering:</strong> Derived domain-specific features, including Wet Bulb Temperature (capturing joint heat-humidity stress), temperature–dew point spreads, and station-to-sea level pressure variances.</li>
+        <li><strong>Calendar & Behavioral Indicators:</strong> One-hot encoded categorical time features including time-of-day, day-of-week, season, quarter, and weekend indicators.</li>
+        <li><strong>Outlier Mitigation:</strong> Applied per-region Interquartile Range (IQR) bounds and Winsorization to manage sensor anomalies without discarding extreme weather events.</li>
+        <li><strong>Target Decomposition:</strong> Applied seasonal-trend decomposition (Statsmodels) to the demand target to isolate genuine signal from calendar-driven trend and seasonality prior to feature modeling.</li>
+      </ul>
+
+      <h3>2. Exploratory Data Insights & Regional Variance</h3>
+      <p>Data analysis revealed distinct operational dynamics across regions, demonstrating that a single national model would fail to capture localized grid drivers:</p>
+      <ul>
+        <li><strong>Climate Driver Contrast:</strong> Queensland (QLD) demand peaked during summer due to heavy cooling loads (strong positive correlation with temperature), whereas New South Wales (NSW), Victoria (VIC), and Tasmania (TAS) experienced winter peaks driven by heating demand.</li>
+        <li><strong>Top Weather Signal:</strong> Wet Bulb Temperature emerged as the strongest weather-related predictor (r = 0.394$), outperforming raw dry-bulb air temperature across all states.</li>
+        <li><strong>Load Profiles:</strong> Identified consistent daily double-peak structures across all regions—a startup peak between 07:00–10:00 and a primary peak between 18:00–21:00.</li>
+      </ul>
+    </section>
+
+    <!-- Section 3: Model Performance Comparison Matrix -->
+    <section class="cs-section">
+      <h2>Model Architecture & Performance Benchmarking</h2>
+      <p>Evaluated seven algorithms independently per region using R2, RMSE, MAE, and Adjusted R2. Below is the benchmark performance matrix for the Queensland validation set:</p>
+
+            <div class="summary-box" style="padding: 0; overflow: hidden; margin: 24px 0;">
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.92rem; text-align: left;">
+          <thead>
+            <tr style="border-bottom: 1px solid var(--line); background: rgba(255,255,255,0.03);">
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Model Architecture</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">R2 Score</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">RMSE (MW)</th>
+              <th style="padding: 14px 18px; font-family: var(--font-mono); color: var(--text-muted);">Performance Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">CatBoost Regressor</td>
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">0.840</td>
+              <td style="padding: 14px 18px;">337.8</td>
+              <td style="padding: 14px 18px;">Best single-model performance on Queensland validation.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">LightGBM Regressor</td>
+              <td style="padding: 14px 18px;">0.827</td>
+              <td style="padding: 14px 18px;">351.9</td>
+              <td style="padding: 14px 18px;">Selected for hyperparameter tuning — best accuracy/speed balance.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">XGBoost Regressor</td>
+              <td style="padding: 14px 18px;">0.823</td>
+              <td style="padding: 14px 18px;">355.4</td>
+              <td style="padding: 14px 18px;">Strong baseline tree-boosting performance.</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--line);">
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">Stacked Meta-Model</td>
+              <td style="padding: 14px 18px;">0.823</td>
+              <td style="padding: 14px 18px;">355.4</td>
+              <td style="padding: 14px 18px;">Matched XGBoost's accuracy while improving generalization stability across regions.</td>
+            </tr>
+            <tr>
+              <td style="padding: 14px 18px; font-weight: 600; color: var(--accent);">AdaBoost Regressor</td>
+              <td style="padding: 14px 18px;">0.691</td>
+              <td style="padding: 14px 18px;">470.2</td>
+              <td style="padding: 14px 18px;">Underperformed on non-linear load spikes.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Section 4: Key Insights & Feature Importance -->
+    <section class="cs-section">
+      <h2>Key Insights & Feature Importance Analysis</h2>
+      <p>Across all five state models, feature attribution analysis highlighted the relative impact of temporal and atmospheric inputs:</p>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>Hour of Day & Day of Year:</strong>
+            Primary drivers of baseline grid load shapes, accounting for underlying daily schedule routines and macroscopic annual cycles.
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>Wet Bulb Temperature (r = 0.394):</strong>
+            Emerged as the single strongest weather predictor across all five state models, effectively capturing the compound human comfort index that triggers HVAC loads.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Temperature-Dew Point Spread:</strong>
+            Key contributor during transitional seasonal months, providing early variance signals during rapid atmospheric pressure shifts.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Section 5: Tools & Cloud Stack -->
+    <section class="cs-section">
+      <h2>Tools & Technologies</h2>
+      <ul class="rec-list">
+        <li>
+          <span class="n">01</span>
+          <div>
+            <strong>Cloud Infrastructure:</strong> AWS SageMaker (Processing, Training Jobs, Model Hosting & Endpoints).
+          </div>
+        </li>
+        <li>
+          <span class="n">02</span>
+          <div>
+            <strong>Languages & Core Libraries:</strong> Python, Pandas, NumPy, SciPy, Statsmodels.
+          </div>
+        </li>
+        <li>
+          <span class="n">03</span>
+          <div>
+            <strong>Machine Learning Frameworks:</strong> Scikit-Learn, XGBoost, LightGBM, CatBoost.
+          </div>
+        </li>
+        <li>
+          <span class="n">04</span>
+          <div>
+            <strong>Visualization & Analytics:</strong> Matplotlib, Seaborn, Joypy.
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Footer Divider and Icons -->
+    <div class="btn-divider energy_demand_forecasting-divider"></div>
+    <div class="social-row energy_demand_forecasting-social">
+      <a href="https://www.linkedin.com/in/chooladevapiyasiri/" target="_blank" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.15 1.45-2.15 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45z"/></svg>
+      </a>
+      <a href="https://github.com/chooladevapiyasiri" target="_blank" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .5C5.73.5.5 5.73.5 12c0 5.08 3.29 9.39 7.86 10.91.57.1.78-.25.78-.55 0-.27-.01-1.16-.02-2.11-3.2.7-3.88-1.36-3.88-1.36-.52-1.32-1.28-1.67-1.28-1.67-1.05-.72.08-.71.08-.71 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.55-.29-5.23-1.28-5.23-5.68 0-1.25.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.79 0c2.2-1.49 3.17-1.18 3.17-1.18.64 1.59.24 2.76.12 3.05.74.8 1.18 1.83 1.18 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14 0 1.55-.01 2.79-.01 3.17 0 .3.2.66.79.55A10.51 10.51 0 0 0 23.5 12c0-6.27-5.23-11.5-11.5-11.5z"/></svg>
+      </a>
+      <a href="mailto:chooladeva.lp@gmail.com" aria-label="Gmail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2.5" y="4.5" width="19" height="15" rx="2"/><path d="M3 6l9 7 9-7"/></svg>
+      </a>
+    </div>
+
+    <p class="copyright-text">&copy; Chooladeva Piyasiri. All rights reserved.</p>
+
+  </div>
+</div>
+
+</body>
+</html>
