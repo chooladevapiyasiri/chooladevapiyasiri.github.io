@@ -225,26 +225,6 @@ body.home .hero {
   padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
 }
 
-/* Ensure brand name stays visible on mobile devices */
-@media screen and (max-width: 720px) {
-  .brand, 
-  a.brand, 
-  .nav-brand {
-    display: block !important;
-    text-align: center;
-    font-size: 0.95rem !important;
-    margin-bottom: 12px !important;
-    width: 100%;
-  }
-
-  /* Adjust navigation layout so elements stay stacked cleanly */
-  .topnav {
-    flex-direction: column !important;
-    align-items: center !important;
-    padding-top: 12px !important;
-  }
-}
-
 /* Base styling for brand link */
 a.brand {
   text-decoration: none !important;
