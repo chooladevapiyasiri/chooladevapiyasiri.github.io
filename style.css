@@ -7,8 +7,8 @@
   --text: #EDEDED;
   --text-muted: #9B9B9B;
   --line: #333333;
-  --accent: #6FA3D8;      /* soft blue, visible on dark */
-  --accent-2: #D9A857;    /* warm gold — used sparingly */
+  --accent: #6FA3D8;      
+  --accent-2: #D9A857;   
   --font-display: 'Fraunces', Georgia, serif;
   --font-body: 'IBM Plex Sans', -apple-system, sans-serif;
   --font-mono: 'IBM Plex Mono', 'Courier New', monospace;
@@ -41,6 +41,7 @@ h2{ font-size: clamp(1.4rem, 3vw, 1.8rem); }
 h3{ font-size: 1.1rem; }
 p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
 .muted{ color: var(--text-muted); }
+
 
 /* =========================================================
    Top navigation (fixed, links right-aligned, horizontal)
@@ -84,10 +85,11 @@ p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
   width: 100%;
   margin: 0 auto;
   padding: 64px 44px 24px;
-  flex: 1; /* Expands wrap to take all available vertical space */
+  flex: 1; 
   display: flex;
   flex-direction: column;
 }
+
 
 /* =========================================================
    Buttons / tags
@@ -115,6 +117,7 @@ p{ margin: 0 0 1em 0; max-width: 100%; color: #C7C7C7; font-size: 1.1rem;}
   padding: 3px 8px;
   display: inline-block;
 }
+
 
 /* =========================================================
    Hero (home page)
@@ -220,9 +223,9 @@ body.home .social-row {
   margin-bottom: 0 !important;
 }
 
-/* Increase space above the title on the home page only */
+/* Increase space above the title on the home page */
 body.home .hero {
-  padding-top: 160px !important; /* Increase or decrease this px value to adjust space */
+  padding-top: 160px !important; 
 }
 
 /* Base styling for brand link */
@@ -233,7 +236,6 @@ a.brand {
   transition: color 0.2s ease, opacity 0.2s ease;
 }
 
-/* Hover color for all subpages EXCEPT Home */
 body:not(.home) a.brand:hover {
   color: #38BDF8 !important;
   opacity: 1;
@@ -244,9 +246,9 @@ body:not(.home) a.brand:hover {
   body.home .copyright-text,
   body.home p.copyright-text {
     font-size: 0.68rem !important;
-    -webkit-text-size-adjust: none !important; /* Disables mobile browser auto-inflation */
+    -webkit-text-size-adjust: none !important; 
     text-size-adjust: none !important;
-    white-space: normal !important;            /* Allows clean text flow on narrow viewports */
+    white-space: normal !important;           
     line-height: 1.4 !important;
   }
 }
@@ -269,13 +271,12 @@ body:not(.home) a.brand:hover {
 .social-row a:hover{ color: var(--accent); }
 .social-row svg{ width: 30px; height: 30px; }
 
-/* Horizontal line above social icons strictly on the About page */
+/* Horizontal line above social icons */
 .about .social-row {
   border-top: 1px solid var(--line);
   padding-top: 30px;
   margin-top: 20px;
 }
-
 
 
 /* =========================================================
@@ -292,6 +293,7 @@ section:last-of-type{ border-bottom: none; }
   margin-bottom: 6px;
 }
 
+
 /* =========================================================
    Stack grid
    ========================================================= */
@@ -306,6 +308,7 @@ section:last-of-type{ border-bottom: none; }
   border-top: 1px solid var(--line);
 }
 .stack-group li:first-of-type{ border-top: none; }
+
 
 /* =========================================================
    Portfolio list (rows)
@@ -337,7 +340,7 @@ section:last-of-type{ border-bottom: none; }
    2-Column Portfolio Grid Layout
    ========================================================= */
 
-/* Expand main container width on portfolio page to comfortably fit 2 cards */
+/* Expand main container width on portfolio page to  fit 2 cards */
 body:has(.portfolio-grid) .wrap {
   max-width: 1000px;
 }
@@ -367,7 +370,7 @@ body:has(.portfolio-grid) .wrap {
 /* Image wrapper container */
 .proj-card-img {
   width: 100%;
-  height: 260px; /* Fixed height for consistent card alignment */
+  height: 260px;
   background-color: var(--bg-panel);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
@@ -402,7 +405,7 @@ body:has(.portfolio-grid) .wrap {
   line-height: 1.6;
   color: #C7C7C7;
   margin-bottom: 20px;
-  flex: 1; /* Pushes the 'View case study' button to the bottom */
+  flex: 1;
 }
 
 .proj-card-content .view {
@@ -437,14 +440,13 @@ body:has(.portfolio-grid) .wrap {
   }
 }
 
-
 /* Custom spacing for articles page divider */
 .btn-divider.portfolio-divider {
   margin-top: 30px;  
-  margin-bottom: 4px; /* Adjust this pixel value to increase or decrease the gap */
+  margin-bottom: 4px;
 }
 
-/* Reduce social icons gap specifically on the articles page */
+/* Reduce social icons gap  */
 .portfolio-hero ~ .social-row,
 .wrap:has(.portfolio-hero) .social-row {
   margin-bottom: 330px !important;
@@ -471,13 +473,14 @@ body:has(.portfolio-grid) .wrap {
   }
 
   .tab-btn {
-    min-width: 0 !important; /* Allows buttons to shrink */
-    flex: 1;                /* Distributes space equally */
-    white-space: nowrap;            /* Fits both buttons 50/50 across the screen */
-    padding: 10px 4px;       /* Reduces side padding so text isn't clipped */
-    font-size: 0.8rem;      /* Slightly smaller text for tight mobile screens */
+    min-width: 0 !important; 
+    flex: 1;              
+    white-space: nowrap;        
+    padding: 10px 4px;       
+    font-size: 0.8rem;    
   }
 }
+
 
 /* =========================================================
    Article list
@@ -494,7 +497,7 @@ body:has(.portfolio-grid) .wrap {
 
 /* Custom spacing below hero header on articles page */
 .hero.articles-hero {
-  margin-bottom: 20px !important; /* Adjust this value (e.g., 40px to 60px) to increase or decrease the gap */
+  margin-bottom: 20px !important;
 }
 
 .article-row:first-of-type{ border-top: none; }
@@ -596,10 +599,10 @@ body:has(.portfolio-grid) .wrap {
 /* Custom spacing for articles page divider */
 .btn-divider.articles-divider {
   margin-top: 0px;  
-  margin-bottom: 4px; /* Adjust this pixel value to increase or decrease the gap */
+  margin-bottom: 4px;
 }
 
-/* Reduce social icons gap specifically on the articles page */
+/* Reduce social icons gap  */
 .articles-hero ~ .social-row,
 .wrap:has(.articles-hero) .social-row {
   margin-bottom: 330px !important;
@@ -619,7 +622,6 @@ body:has(.portfolio-grid) .wrap {
 }
 
 
-
 /* =========================================================
    Contact Section
    ========================================================= */
@@ -627,9 +629,9 @@ body:has(.portfolio-grid) .wrap {
 .contact-list {
   list-style: none;
   padding: 0;
-  max-width: 900px; /* Adjust this value to set your preferred width */
+  max-width: 900px; 
   width: 100%;
-  margin: 0 auto !important; /* Centers the narrow table horizontally */
+  margin: 0 auto !important; 
 }
 
 .contact-list li {
@@ -639,10 +641,9 @@ body:has(.portfolio-grid) .wrap {
   justify-content: space-between;
 }
 
-/* Remove top padding and border on the very first list item */
 .contact-list li:first-child {
   border-top: none;
-  padding-top: 0 !important; /* Removes top gap inside the list item */
+  padding-top: 0 !important;
 }
 
 .contact-list .k {
@@ -655,7 +656,6 @@ body:has(.portfolio-grid) .wrap {
   color: var(--accent);
 }
 
-/* Force zero gap under hero lede */
 .hero {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
@@ -677,7 +677,7 @@ body:has(.portfolio-grid) .wrap {
 }
 
 .direct-reach-section .contact-list {
-  margin-top: 8px !important; /* Small clean gap right below the paragraph */
+  margin-top: 8px !important;
   margin-left: auto !important;
   margin-right: auto !important;
   padding-top: 0 !important;
@@ -686,15 +686,14 @@ body:has(.portfolio-grid) .wrap {
 
 /* Stacked Calendly Section */
 .calendly-section {
-  margin-top: 45px !important;  /* Reduced from 32px/3px */
+  margin-top: 45px !important; 
   padding-top: 0 !important;
 }
 
-/* Horizontal line below the button */
 .btn-divider {
   width: 100%;
   border-bottom: 1px solid var(--line);
-  margin-top: 80px; /* Space between button and the line */
+  margin-top: 80px; 
   margin-bottom: 0;
 } 
 
@@ -892,7 +891,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   margin: 32px auto 20px auto;
   border-radius: 8px;
   border: 1px solid var(--line);
-  order: 2; /* Pushes image down below order: 1 elements */
+  order: 2; 
 }
 
 /* Ensure the sub-heading spans full width above the photo/text */
@@ -910,7 +909,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 /* Mobile responsive handling */
 @media (max-width: 720px) {
   .about-bio-section {
-    margin-top: 0; /* Reset spacing on small screens */
+    margin-top: 0; 
   }
 
   .bio-photo-float {
@@ -928,8 +927,8 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   header p {
     font-size: 0.92rem;
     word-spacing: normal;
-    white-space: normal !important; /* Allows paragraph text to wrap naturally across lines */
-    overflow-wrap: break-word;      /* Prevents long words from overflowing screen edges */
+    white-space: normal !important; 
+    overflow-wrap: break-word;      
     margin-bottom: 20px !important; 
   }
 
@@ -1000,7 +999,6 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
-
 /* Reduce spacing above Academic Foundation section */
 .academic-section {
   padding-top: 43px;
@@ -1010,13 +1008,12 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 .academic-section .section-head {
   margin-top: 0 !important;
   padding-top: 0 !important;
-  margin-bottom: 50px; /* Decreases gap between title and cards */
-}
+  margin-bottom: 50px; 
 
 /* Horizontal Academic Cards Grid */
 .academic-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* Displays cards side-by-side */
+  grid-template-columns: repeat(2, 1fr); 
   gap: 20px;
   margin-top: 10px;
 }
@@ -1040,7 +1037,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 .academic-year {
   font-family: var(--font-mono);
   font-size: 0.85rem;
-  color: #38BDF8; /* Highlight color for year */
+  color: #38BDF8; 
   margin-bottom: 8px;
   display: block;
 }
@@ -1077,7 +1074,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   margin-right: auto !important;
   display: block !important;
   width: 100% !important;
-  margin-top: 280px !important; /* Reduced from auto / default margin */
+  margin-top: 280px !important;
   padding-top: 0 !important;
   padding-bottom: 20px !important;
   margin-bottom: 0 !important;
@@ -1089,7 +1086,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 
 /* Increase space between lede text and button on resume page */
 .resume-hero .lede {
-  margin-bottom: 15px !important; /* Adjust this value (e.g., 24px to 36px) to expand the gap */
+  margin-bottom: 15px !important;
 }
 
 /* Button styling specifically for the Resume page */
@@ -1141,7 +1138,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 
   .topnav .brand {
-    display: none; /* Hides brand name on small screens to fit links */
+    display: none; 
   }
 
   .topnav-links {
@@ -1176,6 +1173,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   }
 }
 
+   
 /* =========================================================
    Case Study Page Styles
    ========================================================= */
@@ -1203,7 +1201,7 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
     font-family: 'IBM Plex Sans', sans-serif;
     font-size: 0.95rem;
     font-weight: 500;
-    min-width: 320px; /* Adjust this value up (e.g., 200px, 220px) to make them wider */
+    min-width: 320px; 
     padding: 10px 24px;
     text-align: center;
     border-radius: 6px;
@@ -1213,8 +1211,8 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 
 /*  Hover State for Unselected Button */
     .tab-btn:hover:not(.active) {
-      background-color: #262626; /* Slightly lighter background on hover */
-      border-color: #4f4f4f;     /* Brighter border on hover */
+      background-color: #262626; 
+      border-color: #4f4f4f;    
       color: #ffffff;
   }
 
@@ -1225,9 +1223,9 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
 
 /* Active (Selected) Button State */
   .tab-btn.active {
-    background-color: #3f72af; /* Highlighted background color */
+    background-color: #3f72af; 
     color: #ffffff;
-    border: 1px solid #6495ed; /* Matching active border */
+    border: 1px solid #6495ed; 
     box-shadow: 0 0 0 1px rgba(91, 140, 212, 0.4);
   }
 
@@ -1239,7 +1237,6 @@ figcaption{ font-family: var(--font-mono); font-size: .8rem; color: var(--text-m
   .tab-content.active {
     display: block;
   }
-
 
 /* Header & Meta Row */
 .cs-header {
@@ -1438,7 +1435,6 @@ figcaption,
   text-justify: inter-word;
 }
 
-/* Optional: Justify summary box paragraph text as well */
 .summary-box p {
   margin: 0;
   font-size: 0.95rem;
@@ -1459,7 +1455,7 @@ figcaption,
   border-radius: 12px;
   padding: 32px 24px;
   margin: 32px auto 12px auto;
-  max-width: 600px;            /* Optional: limits the outer container width directly */
+  max-width: 600px;          
   width: 100%;
 
 }
